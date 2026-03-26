@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bugema University | Computing & Informatics</title>
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Inter (modern, clean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #f5f9ff;
+      color: #1a2b3e;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* subtle background pattern for depth */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle at 20% 30%, rgba(0,70,150,0.03) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(0,100,200,0.03) 0%, transparent 30%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ---------- logo area (bigger and outside the nav bar) ---------- */
+    .logo-area {
+      display: flex;
+      justify-content: center;  /* center the logo */
+      margin: 2.5rem 0 1rem 0;
+    }
+
+    .logo-img {
+      width: 140px;          /* much larger logo */
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 10px 25px -5px rgba(0,60,130,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ---------- navigation bar (links with equal spacing) ---------- */
+    .navbar {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 80px;
+      padding: 0.8rem 2rem;
+      margin: 1rem 0 2rem;
+      box-shadow: 0 15px 35px -12px rgba(0,45,80,0.2);
+      border: 1px solid rgba(255,255,255,0.9);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: space-evenly;  /* equal spaces between links */
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      border-radius: 50px;
+      color: #1e4b73;
+      font-weight: 550;
+      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+      background: transparent;
+      white-space: nowrap;
+    }
+
+    .nav-links a i {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    .nav-links a:hover {
+      background: white;
+      color: #0a3c5f;
+      box-shadow: 0 5px 15px -5px rgba(0,80,130,0.3);
+    }
+
+    .nav-links a.active {
+      background: rgba(255,255,255,0.9);
+      color: #0d4b7a;
+      font-weight: 600;
+    }
+
+    /* ---------- hero section: Bugema University centered ---------- */
+    .hero {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      animation: fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 12vw, 6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #072b4b, #1d6fa5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 10px 20px rgba(0,60,130,0.15);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero .dept-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(5px);
+      padding: 0.8rem 2.5rem;
+      border-radius: 60px;
+      font-size: 1.4rem;
+      font-weight: 550;
+      color: #1a5a8c;
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: 0 10px 18px -8px rgba(0,70,130,0.2);
+    }
+
+    .hero .dept-badge i { margin-right: 12px; color: #1d7ab3; }
+
+    /* ---------- sections (clean, elevated) ---------- */
+    .section {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 48px;
+      padding: 3rem 3rem;
+      margin: 2.5rem 0;
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: 0 25px 45px -25px rgba(8,40,70,0.25);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 35px 55px -25px #0e3b5e;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      border-left: 10px solid #1d7ab3;
+      padding-left: 1.8rem;
+    }
+
+    .section-header i {
+      font-size: 2.4rem;
+      color: #1d7ab3;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0a314b;
+    }
+
+    /* about grid (image + text) */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 1.15rem;
+      background: rgba(255,255,255,0.5);
+      padding: 1.8rem 2rem;
+      border-radius: 32px;
+      border: 1px solid #d7e8ff;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 36px;
+      box-shadow: 0 20px 30px -12px #1f4e7a;
+      border: 5px solid white;
+      transition: 0.3s;
+      display: block;
+    }
+
+    .about-image img:hover { transform: scale(1.01); }
+
+    /* programs grid (cards with icons) */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .program-card {
+      background: white;
+      border-radius: 40px;
+      padding: 1.2rem 1.8rem;
+      border: 1px solid #d0e3ff;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-weight: 550;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 10px -5px rgba(0,0,0,0.03);
+      transition: 0.2s;
+    }
+
+    .program-card i {
+      font-size: 1.8rem;
+      color: #1d7ab3;
+      min-width: 2rem;
+    }
+
+    .program-card:hover {
+      background: #ecf5ff;
+      border-color: #1d7ab3;
+      transform: scale(1.02);
+    }
+
+    /* mission block */
+    .mission-block {
+      background: linear-gradient(125deg, #ecf5ff, #ffffff);
+      border-radius: 40px;
+      padding: 2.2rem 2.8rem;
+      border: 1px solid #c1dbfc;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      box-shadow: inset 0 2px 10px rgba(255,255,255,0.8);
+    }
+
+    /* HOD row */
+    .hod-row {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.4);
+      border-radius: 48px;
+      padding: 2rem;
+    }
+
+    .hod-image {
+      flex: 0 0 260px;
+    }
+
+    .hod-image img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 32px;
+      border: 5px solid white;
+      box-shadow: 0 20px 25px -15px #0c3e66;
+      transition: 0.3s;
+    }
+
+    .hod-image img:hover { transform: scale(1.02); }
+
+    .hod-content {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hod-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0a2b44;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.3rem;
+    }
+
+    .hod-title {
+      font-size: 1.25rem;
+      color: #256ba0;
+      margin-bottom: 1.3rem;
+      font-weight: 500;
+    }
+
+    .hod-message {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem 2.2rem;
+      border: 1px solid #cde0f5;
+      font-size: 1.05rem;
+    }
+
+    /* footer */
+    .footer {
+      margin: 3.5rem 0 2rem;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      border-radius: 80px;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      color: #1b4a6f;
+      border: 1px solid rgba(255,255,255,0.9);
+    }
+
+    .footer a { color: #1b4a6f; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* fully responsive */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .hod-row { flex-direction: column; text-align: center; }
+      .hod-name { justify-content: center; }
+      .container { padding: 0 1.5rem; }
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        border-radius: 40px;
+        padding: 0.5rem 1rem;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+      .nav-links a {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.95rem;
+      }
+      .section { padding: 2rem 1.5rem; }
+      .section-header h2 { font-size: 1.8rem; }
+      .hero h1 { font-size: 3.5rem; }
+      .hero .dept-badge { font-size: 1.1rem; padding: 0.6rem 1.5rem; }
+    }
+
+    /* animations on scroll (simple) */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- big logo, outside the navigation bar -->
+  <div class="logo-area">
+    <img class="logo-img" src="bu.png" alt="Bugema University shield logo">
+  </div>
+
+  <!-- navigation bar with links equally spaced -->
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="registration.html" class="active"><i class="fas fa-university"></i> Registration</a>
+       <a href="links.html"><i class="fas fa-link"></i> Learning </a>
+      <a href="profile.html"><i class="fas fa-users"></i> Profile</a>
+      <a href="timetable.html"><i class="fas fa-calendar-check"></i> Timetable</a>
+      <a href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO: Bugema University in the middle -->
+  <div class="hero">
+    <h1>Bugema University</h1>
+    <div class="dept-badge">
+      <i class="fas fa-laptop-code"></i> Department of Computing & Informatics
+    </div>
+  </div>
+
+  <!-- ABOUT section with image -->
+  <section class="section fade-in" id="about">
+    <div class="section-header">
+      <i class="fas fa-graduation-cap"></i>
+      <h2>About the Department</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>The Department of Computing and Informatics trains innovative problem-solvers through a blend of theory and hands-on practice in software development, data science, networking, and cybersecurity. Our graduates are ethical leaders ready for the digital economy.</p>
+      </div>
+      <div class="about-image">
+        <!-- structured image tag: modern computing lab -->
+        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&auto=format&fit=crop&q=80"
+             alt="Students working in a modern computer lab at Bugema University" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS (full list, icons on each) -->
+  <section class="section fade-in" id="programs">
+    <div class="section-header">
+      <i class="fas fa-book-open"></i>
+      <h2>Academic Programs</h2>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card"><i class="fas fa-book"></i> B. Library & Info Science</div>
+      <div class="program-card"><i class="fas fa-laptop"></i> B. Information Technology</div>
+      <div class="program-card"><i class="fas fa-briefcase"></i> B. Business Computing</div>
+      <div class="program-card"><i class="fas fa-network-wired"></i> B. Network Systems Admin</div>
+      <div class="program-card"><i class="fas fa-microchip"></i> Dip. Computer Engineering</div>
+      <div class="program-card"><i class="fas fa-robot"></i> BSc Applied Data Science & AI</div>
+      <div class="program-card"><i class="fas fa-archive"></i> B. Records & Archives Mgt</div>
+      <div class="program-card"><i class="fas fa-fingerprint"></i> Dip. Computer Forensics</div>
+      <div class="program-card"><i class="fas fa-certificate"></i> Cert. IT (UBTEB)</div>
+    </div>
+    <!-- concise abbreviation row (professional) -->
+    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; margin-top: 2rem; justify-content: center;">
+      <span style="background: #e2efff; border-radius: 40px; padding: 0.4rem 1.2rem;"><i class="fas fa-check-circle" style="color:#1d7ab3;"></i> BIT</span>
+      <span style="background: #e2efff; border-radius: 40px; padding: 0.4rem 1.2rem;"><i class="fas fa-check-circle" style="color:#1d7ab3;"></i> BBC</span>
+      <span style="background: #e2efff; border-radius: 40px; padding: 0.4rem 1.2rem;"><i class="fas fa-check-circle" style="color:#1d7ab3;"></i> NSA</span>
+      <span style="background: #e2efff; border-radius: 40px; padding: 0.4rem 1.2rem;"><i class="fas fa-check-circle" style="color:#1d7ab3;"></i> DIT</span>
+      <span style="background: #e2efff; border-radius: 40px; padding: 0.4rem 1.2rem;"><i class="fas fa-check-circle" style="color:#1d7ab3;"></i> BCN</span>
+    </div>
+  </section>
+
+  <!-- MISSION & VALUES (concise, professional) -->
+  <section class="section fade-in">
+    <div class="section-header">
+      <i class="fas fa-bullseye"></i>
+      <h2>Mission & Values</h2>
+    </div>
+    <div class="mission-block">
+      <p><i class="fas fa-quote-left" style="color:#1d7ab3; opacity:0.8; margin-right:10px;"></i> 
+      To equip students with theoretical and practical computing skills that solve real-world challenges through innovation, research, and ethical practice. We foster creativity, teamwork, and professional integrity in the digital age.</p>
+    </div>
+  </section>
+
+  <!-- HEAD OF DEPARTMENT with real image tag (summarized message) -->
+  <section class="section fade-in">
+    <div class="section-header">
+      <i class="fas fa-user-tie"></i>
+      <h2>Head of Department</h2>
+    </div>
+    <div class="hod-row">
+      <div class="hod-image">
+        <!-- well-structured image tag: portrait (placeholder, replace with actual) -->
+        <img src="hod.png" alt="Mr. Ssewankambo Erma, Head of Computing and Informatics at Bugema University" loading="lazy">
+      </div>
+      <div class="hod-content">
+        <div class="hod-name"><i class="fas fa-crown" style="color:#d4af37;"></i> Mr. Ssewankambo Erma</div>
+        <div class="hod-title">Head, Computing & Informatics</div>
+        <div class="hod-message">
+          <i class="fas fa-quote-left" style="color:#1d7ab3; opacity:0.6; margin-right:6px;"></i>
+          Our department delivers future-ready education in software, data, networking, and cybersecurity. We emphasize hands-on skills, ethics, and teamwork. With dedicated faculty and modern labs, we prepare graduates to lead Africa’s digital transformation. Join us to innovate and make a difference.
+          <i class="fas fa-quote-right" style="color:#1d7ab3; opacity:0.6; margin-left:6px;"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- simple scroll animation script -->
+<script>
+  (function() {
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  })();
+</script>
+</body>
+</html>

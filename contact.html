@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact the Department of Informatics and Computing - Get in touch with our faculty and administrative staff">
+  <title>Contact | Department of Informatics & Computing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3H+J5wnEsA3mS7rjt46gF52D87Xjbn63fBu03vxvx6wjWDxSJc5AoX41togvAdE1f3MwRE/+v0A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header & Navigation -->
+    <header>
+      <div class="header-content">
+        <div class="logo-area">
+          <img src="work/bu.png" alt="Bugema University Logo" class="logo-img">
+          <div class="dept-title">
+            <h1>Informatics & Computing</h1>
+            <p>Bugema University</p>
+          </div>
+        </div>
+        <nav>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="admissions.html">Admissions</a>
+            <a href="academics.html">Academics</a>
+            <a href="staff.html">Staff</a>
+            <a href="student-portal.html">Portal</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+          <div class="hero-content">
+            <h1>Get In Touch</h1>
+            <p>We're here to help and answer any questions</p>
+          </div>
+        </section>
+
+        <!-- Contact Info Cards -->
+        <section style="margin: 3rem 0;" class="fade-in-up">
+          <h2 style="text-align: center; margin-bottom: 2rem; animation: slideDown 0.6s ease-out;">Contact Information</h2>
+          <div class="grid-3">
+            <div class="feature-card card-animate" style="animation: slideUp 0.6s ease-out 0.1s both;">
+              <i class="fas fa-map-marker-alt"></i>
+              <h3>Address</h3>
+              <p>Department of Informatics & Computing</p>
+              <p>Bugema University</p>
+              <p>Kampala, Uganda</p>
+            </div>
+            <div class="feature-card card-animate" style="animation: slideUp 0.6s ease-out 0.2s both;">
+              <i class="fas fa-phone"></i>
+              <h3>Phone</h3>
+              <p><strong>General:</strong></p>
+              <p><a href="tel:+256312266900">+256 (0) 312 266 900</a></p>
+              <p><strong>After Hours:</strong></p>
+              <p><a href="tel:+256701234567">+256 701 234 567</a></p>
+            </div>
+            <div class="feature-card card-animate" style="animation: slideUp 0.6s ease-out 0.3s both;">
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              <p><strong>General:</strong></p>
+              <p><a href="mailto:computing@bugema.ac.ug">computing@bugema.ac.ug</a></p>
+              <p><strong>Admissions:</strong></p>
+              <p><a href="mailto:admissions@bugema.ac.ug">admissions@bugema.ac.ug</a></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Form & Map -->
+        <section style="margin: 3rem 0;" class="fade-in-up">
+          <div class="grid-2" style="gap: 2rem; align-items: start;">
+            <!-- Contact Form -->
+            <div class="card" style="animation: slideUp 0.6s ease-out 0.1s both; transition: all 0.4s ease;\">
+              <div class="card-header">
+                <h2 style="animation: slideDown 0.6s ease-out 0.2s both;\">Send us a Message</h2>
+              </div>
+              
+              <form style="margin-top: 1.5rem;" class="form-animate">
+                <div class="form-group form-item-delay-1">
+                  <label for="name">Full Name <span style="color: var(--primary-blue);">*</span></label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group form-item-delay-2">
+                  <label for="email">Email Address <span style="color: var(--primary-blue);">*</span></label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group form-item-delay-3">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group form-item-delay-4">
+                  <label for="category">Inquiry Category <span style="color: var(--primary-blue);">*</span></label>
+                  <select id="category" name="category" required>
+                    <option value="">Select a category...</option>
+                    <option value="admissions">Admissions Inquiry</option>
+                    <option value="academic">Academic Question</option>
+                    <option value="technical">Technical Support</option>
+                    <option value="general">General Question</option>
+                    <option value="partnership">Partnership Opportunity</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group form-item-delay-5">
+                  <label for="message">Message <span style="color: var(--primary-blue);">*</span></label>
+                  <textarea id="message" name="message" placeholder="Tell us more about your inquiry..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; animation: slideUp 0.6s ease-out 1.2s both;">Send Message</button>
+              </form>
+            </div>
+
+            <!-- Quick Info -->
+            <div style="animation: slideUp 0.8s ease-out 0.2s both;">
+              <div class="card" style="transition: all 0.4s ease; box-shadow: var(--shadow-md);">
+                <div class="card-header">
+                  <h2 style="animation: slideDown 0.6s ease-out;">Office Hours</h2>
+                </div>
+                
+                <div style="padding: 1rem 0;">
+                  <div style="display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>Monday - Friday</strong>
+                    <span style="color: var(--text-muted);">8:00 AM - 5:00 PM</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>Saturday</strong>
+                    <span style="color: var(--text-muted);">9:00 AM - 1:00 PM</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 0.8rem 0;">
+                    <strong>Sunday</strong>
+                    <span style="color: var(--text-muted);">Closed</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card" style="margin-top: 1.5rem; animation: slideUp 0.6s ease-out 0.15s both; transition: all 0.4s ease;">
+                <div class="card-header">
+                  <h2 style="animation: slideDown 0.6s ease-out 0.25s both;">Response Time</h2>
+                </div>
+                
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong style="color: var(--primary-blue);">Weekdays:</strong> 24 hours
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong style="color: var(--primary-blue);">Weekends:</strong> 48 hours
+                  </li>
+                  <li style="padding: 0.8rem 0;">
+                    <strong style="color: var(--primary-blue);">Urgent:</strong> Contact +256 701 234 567
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card" style="margin-top: 1.5rem; background: var(--primary-light); border-left-color: var(--accent-yellow); transition: all 0.4s ease;">
+                <h3 style="color: var(--accent-yellow-dark); margin-bottom: 1rem; animation: slideDown 0.6s ease-out 0.2s both;">
+                  <i class="fas fa-lightbulb" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i> Quick Tip
+                </h3>
+                <p style="margin: 0; color: var(--text-dark); animation: fadeIn 0.8s ease-out 0.4s both;">For faster response, include specific details about your inquiry and any relevant reference numbers or dates.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Departments & Contacts -->
+        <section style="margin: 3rem 0;" class="fade-in-up">
+          <h2 style="text-align: center; margin-bottom: 2rem; animation: slideDown 0.6s ease-out;\">Department Contact Directory</h2>
+          <div class="grid-2">
+            <div class="card" style="animation: slideUp 0.6s ease-out 0.1s both; transition: all 0.4s ease;\">\n              <h3 style=\"color: var(--primary-blue); margin-bottom: 1.5rem; animation: slideDown 0.6s ease-out 0.2s both;\">\n                <i class=\"fas fa-user-tie\"></i> Administrative Offices\n              </h3>
+              <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);">
+                <div style="font-weight: 600; color: var(--primary-dark);">Head of Department</div>
+                <div style="color: var(--text-muted);">Prof. David Musoke</div>
+                <div><a href="mailto:dmusoke@bugema.ac.ug" style="color: var(--primary-blue);">dmusoke@bugema.ac.ug</a></div>
+                <div><a href="tel:+256701234567" style="color: var(--primary-blue);">+256 701 234 567</a></div>
+              </div>
+
+              <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);">
+                <div style="font-weight: 600; color: var(--primary-dark);">Department Secretary</div>
+                <div style="color: var(--text-muted);">Ms. Margaret Obi</div>
+                <div><a href="mailto:mobi@bugema.ac.ug" style="color: var(--primary-blue);">mobi@bugema.ac.ug</a></div>
+                <div><a href="tel:+256701234577" style="color: var(--primary-blue);">+256 701 234 577</a></div>
+              </div>
+
+              <div>
+                <div style="font-weight: 600; color: var(--primary-dark);">Lab Manager</div>
+                <div style="color: var(--text-muted);">Mr. Charles Okonkwo</div>
+                <div><a href="mailto:cokonkwo@bugema.ac.ug" style="color: var(--primary-blue);">cokonkwo@bugema.ac.ug</a></div>
+                <div><a href="tel:+256701234578" style="color: var(--primary-blue);">+256 701 234 578</a></div>
+              </div>
+            </div>
+
+            <div class="card" style="animation: slideUp 0.6s ease-out 0.2s both; transition: all 0.4s ease;">
+              <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem; animation: slideDown 0.6s ease-out 0.3s both;">
+                <i class="fas fa-graduation-cap"></i> Student Services
+              </h3>
+              <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);">
+                <div style="font-weight: 600; color: var(--primary-dark);">Admissions Coordinator</div>
+                <div style="color: var(--text-muted);">Available at main office</div>
+                <div><a href="mailto:admissions@bugema.ac.ug" style="color: var(--primary-blue);">admissions@bugema.ac.ug</a></div>
+                <div><a href="tel:+256312266900" style="color: var(--primary-blue);">+256 312 266 900</a></div>
+              </div>
+
+              <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);">
+                <div style="font-weight: 600; color: var(--primary-dark);">Academic Affairs</div>
+                <div style="color: var(--text-muted);">Academic planning & registrations</div>
+                <div><a href="mailto:academics@bugema.ac.ug" style="color: var(--primary-blue);">academics@bugema.ac.ug</a></div>
+                <div><a href="tel:+256312266900" style="color: var(--primary-blue);">+256 312 266 900 ext. 102</a></div>
+              </div>
+
+              <div>
+                <div style="font-weight: 600; color: var(--primary-dark);">Technical Support</div>
+                <div style="color: var(--text-muted);">IT infrastructure & lab support</div>
+                <div><a href="mailto:itsupport@bugema.ac.ug" style="color: var(--primary-blue);">itsupport@bugema.ac.ug</a></div>
+                <div><a href="tel:+256701234578" style="color: var(--primary-blue);">+256 701 234 578</a></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section style="margin: 3rem 0;" class="fade-in-up">
+          <h2 style="text-align: center; margin-bottom: 2rem; animation: slideDown 0.6s ease-out;">Frequently Asked Questions</h2>
+          <div class="card faq-card">
+            <div class="faq-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);">
+              <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem; cursor: pointer; transition: color 0.3s ease;">
+                <i class="fas fa-question-circle"></i> How do I apply for admission?
+              </h4>
+              <p style="margin: 0; color: var(--text-muted); animation: fadeIn 0.5s ease-out;">Visit our <a href="admissions.html" style="color: var(--primary-blue);">Admissions page</a> for detailed requirements and application procedures.</p>
+            </div>
+
+            <div class="faq-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);">
+              <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem; cursor: pointer; transition: color 0.3s ease;">
+                <i class="fas fa-question-circle"></i> What are the technical support hours?
+              </h4>
+              <p style="margin: 0; color: var(--text-muted); animation: fadeIn 0.5s ease-out;">Technical support is available Monday-Friday 8 AM - 5 PM. Emergency support available 24/7 for critical issues.</p>
+            </div>
+
+            <div class="faq-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);">
+              <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem; cursor: pointer; transition: color 0.3s ease;">
+                <i class="fas fa-question-circle"></i> How can I contact my instructor?
+              </h4>
+              <p style="margin: 0; color: var(--text-muted); animation: fadeIn 0.5s ease-out;">Access the <a href="staff.html" style="color: var(--primary-blue);">Staff directory</a> for faculty contact information and office hours.</p>
+            </div>
+
+            <div class="faq-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);">
+              <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem; cursor: pointer; transition: color 0.3s ease;">
+                <i class="fas fa-question-circle"></i> Are campus tours available?
+              </h4>
+              <p style="margin: 0; color: var(--text-muted); animation: fadeIn 0.5s ease-out;">Yes! Contact our Admissions office at admissions@bugema.ac.ug to schedule a campus tour.</p>
+            </div>
+
+            <div class="faq-item">
+              <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem; cursor: pointer; transition: color 0.3s ease;">
+                <i class="fas fa-question-circle"></i> Can I visit the computing labs?
+              </h4>
+              <p style="margin: 0; color: var(--text-muted); animation: fadeIn 0.5s ease-out;">Students have 24/7 access. Visitors should contact our office for supervised lab tours.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>The Department of Informatics and Computing at Bugema University is committed to excellence in technology education and research.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="academics.html"><i class="fas fa-book"></i> Academics</a><br>
+          <a href="staff.html"><i class="fas fa-users"></i> Faculty</a><br>
+          <a href="admissions.html"><i class="fas fa-user-plus"></i> Admissions</a><br>
+          <a href="student-portal.html"><i class="fas fa-door-open"></i> Student Portal</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+          <p><i class="fas fa-phone"></i> +256 (0) 312 266 900</p>
+          <p><i class="fas fa-envelope"></i> computing@bugema.ac.ug</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a><br>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a><br>
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Department of Informatics & Computing, Bugema University. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

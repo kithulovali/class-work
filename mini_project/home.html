@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bugema · Computing & Informatics</title>
+    <style>
+        /* === consistent design system across all Bugema pages (about, contact) === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f8fe;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            color: #1e2f45;
+        }
+
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* ----- header & navigation (identical to about/contact) ----- */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: white;
+            border-radius: 48px;
+            padding: 0.8rem 2rem 0.8rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 18px -8px rgba(0,30,60,0.08), 0 2px 4px rgba(0,0,0,0.02);
+            border: 1px solid #eef2f6;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 140px;
+            height: auto;
+            display: block;
+            transition: transform 0.2s ease;
+        }
+        .logo-img:hover { transform: scale(1.01); }
+
+        .university-name {
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #0a3a5c;
+            letter-spacing: -0.01em;
+            border-left: 2px solid #1d7ab3;
+            padding-left: 1.2rem;
+            margin-left: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 520;
+            font-size: 1rem;
+            padding: 0.6rem 1.3rem;
+            color: #1a4b70;
+            border-radius: 40px;
+            transition: all 0.15s;
+            background: transparent;
+        }
+
+        .nav-links a:hover {
+            background: #e2edfe;
+            color: #0f5b9c;
+        }
+
+        /* active page: home */
+        .nav-links a[href="home.html"] {
+            background: #0f5b9c;
+            color: white;
+            box-shadow: 0 4px 10px -2px rgba(15,91,156,0.3);
+        }
+
+        /* main card (matches about/contact) */
+        .home-card {
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 25px 40px -18px rgba(0,50,80,0.2), 0 8px 14px -6px rgba(0,20,40,0.05);
+            padding: 2.8rem 3rem 3rem 3rem;
+            border: 1px solid #e3ecf5;
+        }
+
+        /* header inside card */
+        .card-header {
+            margin-bottom: 2.5rem;
+            border-left: 8px solid #1d7ab3;
+            padding-left: 1.8rem;
+        }
+
+        .card-header h1 {
+            font-size: 2.8rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            color: #0c3250;
+            margin: 0 0 0.3rem 0;
+            line-height: 1.2;
+        }
+
+        .card-header .subhead {
+            font-size: 1.2rem;
+            color: #2f6991;
+            background: #eaf3fd;
+            display: inline-block;
+            padding: 0.2rem 1.8rem;
+            border-radius: 60px;
+            border: 1px solid #c0daf5;
+        }
+
+        /* section styling */
+        .section {
+            margin: 2.5rem 0 2rem 0;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #0f3f62;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::before {
+            content: "▍";
+            color: #1d7ab3;
+            font-size: 2rem;
+            line-height: 0;
+        }
+
+        .section p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #1d3e60;
+            background: #f5faff;
+            padding: 1.4rem 2rem;
+            border-radius: 24px;
+            border: 1px solid #dae8fc;
+            margin: 0.8rem 0 1.2rem 0;
+        }
+
+        /* program list — clean grid (identical to about page) */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .program-item {
+            background: #f5faff;
+            border: 1.5px solid #d7e7ff;
+            border-radius: 60px;
+            padding: 0.9rem 1.5rem;
+            font-size: 1.1rem;
+            color: #1d4b77;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.1s;
+        }
+
+        .program-item:hover {
+            background: white;
+            border-color: #1d7ab3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px -10px #1d7ab3;
+        }
+
+        .program-item::before {
+            content: "⌘";
+            color: #1d7ab3;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        /* mission box special */
+        .mission-box {
+            background: linear-gradient(145deg, #f0f8ff, #ffffff);
+            border-radius: 30px;
+            padding: 1.8rem 2.2rem;
+            border: 1px solid #c7deff;
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #163a57;
+            box-shadow: 0 6px 12px -12px rgba(0,0,0,0.1);
+        }
+
+        /* footer */
+        .footer {
+            margin-top: 2rem;
+            background: #ecf5fd;
+            border-radius: 60px;
+            padding: 1.2rem 2rem;
+            text-align: center;
+            color: #2e5f88;
+            border: 1px solid #c9dffb;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer small {
+            opacity: 0.8;
+        }
+
+        /* mobile */
+        @media (max-width: 750px) {
+            body { padding: 1rem; }
+            .top-bar { flex-direction: column; align-items: start; border-radius: 36px; }
+            .nav-links { margin-left: 0; }
+            .home-card { padding: 1.8rem; }
+            .card-header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- header with logo and navigation (identical to about/contact) -->
+        <div class="top-bar">
+            <div class="logo-area">
+                <img src="bu.png" alt="Bugema University logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <span style="display:none; font-weight:600; color:#0a3a5c; font-size:1.4rem;">🏛️ Bugema</span>
+                <span class="university-name">Bugema University</span>
+            </div>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+
+        <!-- main department card (home) -->
+        <div class="home-card">
+            <div class="card-header">
+                <h1>Department of Computing & Informatics</h1>
+                <div class="subhead">Bugema University · excellence in technology</div>
+            </div>
+
+            <!-- welcome section -->
+            <div class="section">
+                <h2>Welcome</h2>
+                <p>
+                    Welcome to the Department of Computing and Informatics at Bugema University. 
+                    The department prepares students with modern computing knowledge and practical
+                    skills to solve real-world problems using technology.
+                </p>
+            </div>
+
+            <!-- programs offered (exactly as listed) -->
+            <div class="section">
+                <h2>Programs Offered</h2>
+                <div class="program-grid">
+                    <div class="program-item">Bachelor of Information Technology</div>
+                    <div class="program-item">Bachelor of Software Engineering</div>
+                    <div class="program-item">Bachelor of Network Systems Administration</div>
+                    <div class="program-item">Diploma in Information Technology</div>
+                    <div class="program-item">Certificate in Information Technology</div>
+                </div>
+            </div>
+
+            <!-- mission section -->
+            <div class="section">
+                <h2>Our Mission</h2>
+                <div class="mission-box">
+                    To equip students with theoretical knowledge and practical computing skills
+                    needed to solve social, economic and technological challenges through
+                    innovation and research.
+                </div>
+            </div>
+        </div>
+
+        <!-- footer (exactly as original, with small design touch) -->
+        <div class="footer">
+            <p>© 2026 Bugema University | Department of Computing & Informatics</p>
+            <small>📍 Kampala, Uganda</small>
+        </div>
+    </div>
+
+    <!-- logo fallback (same as about/contact) -->
+    <script>
+        (function() {
+            const logo = document.querySelector('.logo-img');
+            if (logo) {
+                logo.onerror = function() {
+                    this.style.display = 'none';
+                    const fallback = document.createElement('span');
+                    fallback.textContent = '🏛️ Bugema';
+                    fallback.style.fontWeight = '600';
+                    fallback.style.fontSize = '1.5rem';
+                    fallback.style.color = '#0f5b9c';
+                    fallback.style.letterSpacing = '-0.02em';
+                    this.parentNode.appendChild(fallback);
+                };
+            }
+        })();
+    </script>
+</body>
+</html>

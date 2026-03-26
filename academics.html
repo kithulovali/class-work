@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academics - Course schedules, timetables, and academic programs at the Department of Informatics and Computing">
+  <title>Academics & Timetable | Department of Informatics & Computing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3H+J5wnEsA3mS7rjt46gF52D87Xjbn63fBu03vxvx6wjWDxSJc5AoX41togvAdE1f3MwRE/+v0A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .course-table {
+      margin: 2rem 0;
+    }
+    .time-slot {
+      background: var(--primary-light);
+      padding: 0.8rem;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      color: var(--primary-blue);
+    }
+    .course-name {
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+    .instructor-name {
+      color: var(--text-muted);
+      font-size: var(--font-size-sm);
+    }
+    .venue {
+      color: var(--text-muted);
+      font-size: var(--font-size-sm);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header & Navigation -->
+    <header>
+      <div class="header-content">
+        <div class="logo-area">
+          <img src="work/bu.png" alt="Bugema University Logo" class="logo-img">
+          <div class="dept-title">
+            <h1>Informatics & Computing</h1>
+            <p>Bugema University</p>
+          </div>
+        </div>
+        <nav>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="admissions.html">Admissions</a>
+            <a href="academics.html" class="active">Academics</a>
+            <a href="staff.html">Staff</a>
+            <a href="student-portal.html">Portal</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="container">
+        <!-- Page Header -->
+        <section class="hero" style="animation: slideDown 0.8s ease-out;">
+          <div class="hero-content">
+            <h1 style="animation: slideUp 0.6s ease-out 0.2s both;">Academic Programs</h1>
+            <p style="animation: slideUp 0.6s ease-out 0.3s both;">Courses and Schedules for All Years</p>
+          </div>
+        </section>
+
+        <!-- Year Selection -->
+        <section style="margin: 3rem 0;" class="fade-in-up">
+          <div class="card" style="animation: slideUp 0.6s ease-out;">
+            <div class="card-header">
+              <h2 style="animation: slideDown 0.6s ease-out;">Course Schedules</h2>
+            </div>
+            
+            <!-- Year 1 -->
+            <div style="margin-bottom: 3rem;">
+              <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                <i class="fas fa-calendar"></i> Year 1 - First Semester (Sep 2024 - Dec 2024)
+              </h3>
+              <table class="course-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="time-slot">8:00 - 9:30</td>
+                    <td>
+                      <div class="course-name">Introduction to Programming</div>
+                      <div class="instructor-name">Dr. James Okoro</div>
+                      <div class="venue">Lab 101</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Discrete Mathematics</div>
+                      <div class="instructor-name">Prof. Sarah Mukama</div>
+                      <div class="venue">Hall A</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Introduction to Programming</div>
+                      <div class="instructor-name">Dr. James Okoro</div>
+                      <div class="venue">Lab 101</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Digital Literacy</div>
+                      <div class="instructor-name">Ms. Rebecca Kipchoge</div>
+                      <div class="venue">Lab 102</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Discrete Mathematics</div>
+                      <div class="instructor-name">Prof. Sarah Mukama</div>
+                      <div class="venue">Hall A</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="time-slot">10:00 - 11:30</td>
+                    <td>
+                      <div class="course-name">Web Design Basics</div>
+                      <div class="instructor-name">Eng. Peter Mwangi</div>
+                      <div class="venue">Lab 103</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Computer Organization</div>
+                      <div class="instructor-name">Dr. Kofi Mensah</div>
+                      <div class="venue">Hall B</div>
+                    </td>
+                    <td>
+                      <div class="course-name">English Communication</div>
+                      <div class="instructor-name">Dr. Margaret Obi</div>
+                      <div class="venue">Hall C</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Computer Organization</div>
+                      <div class="instructor-name">Dr. Kofi Mensah</div>
+                      <div class="venue">Hall B</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Web Design Basics</div>
+                      <div class="instructor-name">Eng. Peter Mwangi</div>
+                      <div class="venue">Lab 103</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="time-slot">12:00 - 1:00</td>
+                    <td colspan="5" style="text-align: center; font-weight: 500; color: var(--accent-yellow-dark);">LUNCH BREAK</td>
+                  </tr>
+                  <tr>
+                    <td class="time-slot">1:00 - 2:30</td>
+                    <td>
+                      <div class="course-name">Database Fundamentals</div>
+                      <div class="instructor-name">Eng. Amina Hassan</div>
+                      <div class="venue">Lab 104</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Web Design Basics</div>
+                      <div class="instructor-name">Eng. Peter Mwangi</div>
+                      <div class="venue">Lab 103</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Problem Solving</div>
+                      <div class="instructor-name">Prof. Dorothy Kipkemboi</div>
+                      <div class="venue">Hall A</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Database Fundamentals</div>
+                      <div class="instructor-name">Eng. Amina Hassan</div>
+                      <div class="venue">Lab 104</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Lab Practical Sessions</div>
+                      <div class="instructor-name">All Instructors</div>
+                      <div class="venue">Lab 101-104</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Year 2 -->
+            <div style="margin-bottom: 3rem;">
+              <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                <i class="fas fa-calendar"></i> Year 2 - First Semester (Sep 2024 - Dec 2024)
+              </h3>
+              <table class="course-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="time-slot">8:00 - 9:30</td>
+                    <td>
+                      <div class="course-name">Object-Oriented Programming</div>
+                      <div class="instructor-name">Dr. James Okoro</div>
+                      <div class="venue">Lab 201</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Data Structures</div>
+                      <div class="instructor-name">Eng. Amina Hassan</div>
+                      <div class="venue">Lab 202</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Advanced Web Development</div>
+                      <div class="instructor-name">Eng. Peter Mwangi</div>
+                      <div class="venue">Lab 203</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Database Design</div>
+                      <div class="instructor-name">Eng. Amina Hassan</div>
+                      <div class="venue">Hall D</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Software Engineering Basics</div>
+                      <div class="instructor-name">Dr. Kofi Mensah</div>
+                      <div class="venue">Lab 201</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="time-slot">10:00 - 11:30</td>
+                    <td>
+                      <div class="course-name">Linear Algebra & Calculus</div>
+                      <div class="instructor-name">Prof. Sarah Mukama</div>
+                      <div class="venue">Hall B</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Operating Systems</div>
+                      <div class="instructor-name">Dr. Kofi Mensah</div>
+                      <div class="venue">Lab 202</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Data Structures</div>
+                      <div class="instructor-name">Eng. Amina Hassan</div>
+                      <div class="venue">Lab 202</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Algorithms Analysis</div>
+                      <div class="instructor-name">Prof. Dorothy Kipkemboi</div>
+                      <div class="venue">Hall E</div>
+                    </td>
+                    <td>
+                      <div class="course-name">System Administration</div>
+                      <div class="instructor-name">Eng. Michael Njoroge</div>
+                      <div class="venue">Lab 203</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="time-slot">12:00 - 1:00</td>
+                    <td colspan="5" style="text-align: center; font-weight: 500; color: var(--accent-yellow-dark);">LUNCH BREAK</td>
+                  </tr>
+                  <tr>
+                    <td class="time-slot">1:00 - 2:30</td>
+                    <td>
+                      <div class="course-name">Advanced Web Development</div>
+                      <div class="instructor-name">Eng. Peter Mwangi</div>
+                      <div class="venue">Lab 203</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Software Engineering Basics</div>
+                      <div class="instructor-name">Dr. Kofi Mensah</div>
+                      <div class="venue">Hall D</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Operating Systems</div>
+                      <div class="instructor-name">Dr. Kofi Mensah</div>
+                      <div class="venue">Lab 202</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Project Lab 1</div>
+                      <div class="instructor-name">All Instructors</div>
+                      <div class="venue">Lab 201-203</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Seminar & Discussion</div>
+                      <div class="instructor-name">Faculty</div>
+                      <div class="venue">Hall A</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Year 3 -->
+            <div>
+              <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                <i class="fas fa-calendar"></i> Year 3 - First Semester (Sep 2024 - Dec 2024)
+              </h3>
+              <table class="course-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="time-slot">8:00 - 9:30</td>
+                    <td>
+                      <div class="course-name">Artificial Intelligence</div>
+                      <div class="instructor-name">Dr. Kofi Mensah</div>
+                      <div class="venue">Lab 301</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Cloud Computing</div>
+                      <div class="instructor-name">Eng. Michael Njoroge</div>
+                      <div class="venue">Lab 302</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Cybersecurity Fundamentals</div>
+                      <div class="instructor-name">Eng. Francis Kipchoge</div>
+                      <div class="venue">Lab 303</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Mobile App Development</div>
+                      <div class="instructor-name">Eng. Peter Mwangi</div>
+                      <div class="venue">Lab 301</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Advanced Database Systems</div>
+                      <div class="instructor-name">Eng. Amina Hassan</div>
+                      <div class="venue">Lab 302</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="time-slot">10:00 - 11:30</td>
+                    <td>
+                      <div class="course-name">Business IT Strategy</div>
+                      <div class="instructor-name">Dr. Charles Okonkwo</div>
+                      <div class="venue">Hall F</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Software Quality Assurance</div>
+                      <div class="instructor-name">Eng. Blessing Chukwuma</div>
+                      <div class="venue">Lab 303</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Data Mining & Analytics</div>
+                      <div class="instructor-name">Prof. Dorothy Kipkemboi</div>
+                      <div class="venue">Lab 304</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Distributed Systems</div>
+                      <div class="instructor-name">Dr. Kofi Mensah</div>
+                      <div class="venue">Hall G</div>
+                    </td>
+                    <td>
+                      <div class="course-name">Ethics & Governance</div>
+                      <div class="instructor-name">Dr. Margaret Obi</div>
+                      <div class="venue">Hall H</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="time-slot">12:00 - 1:00</td>
+                    <td colspan="5" style="text-align: center; font-weight: 500; color: var(--accent-yellow-dark);">LUNCH BREAK</td>
+                  </tr>
+                  <tr>
+                    <td class="time-slot">1:00 - 3:30</td>
+                    <td colspan="5" style="text-align: center; font-weight: 600; color: var(--primary-blue);">
+                      <i class="fas fa-flask"></i> Final Year Project / Industrial Internship
+                      <br><span style="font-size: 0.9rem; color: var(--text-muted);">Monday - Friday: Project Development & Mentoring</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Course Descriptions -->
+        <section style="margin: 3rem 0;">
+          <h2 style="margin-bottom: 2rem;">Core Courses</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="color: var(--primary-blue);">Programming Courses</h3>
+              <p><strong>Introduction to Programming:</strong> Fundamentals of programming with Python and Java. Variables, control flow, functions, and basic data structures.</p>
+              <p><strong>Object-Oriented Programming:</strong> Classes, inheritance, polymorphism, encapsulation. Real-world application design patterns.</p>
+              <p><strong>Advanced Web Development:</strong> Full-stack web applications using modern frameworks. Frontend (React, Vue), Backend (Node.js, Django) integration.</p>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--primary-blue);">Systems Courses</h3>
+              <p><strong>Operating Systems:</strong> Process management, memory management, file systems, and concurrent programming.</p>
+              <p><strong>Computer Organization:</strong> CPU architecture, assembly language, memory hierarchy, I/O systems.</p>
+              <p><strong>System Administration:</strong> Linux/Windows server management, network configuration, user management.</p>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--primary-blue);">Data & AI Courses</h3>
+              <p><strong>Data Structures and Algorithms:</strong> Comprehensive study of structures, complexity analysis, and optimization techniques.</p>
+              <p><strong>Artificial Intelligence:</strong> Machine learning, deep learning, neural networks, natural language processing.</p>
+              <p><strong>Data Mining & Analytics:</strong> Statistical analysis, data visualization, predictive modeling.</p>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--primary-blue);">Specialized Courses</h3>
+              <p><strong>Cybersecurity:</strong> Network security, cryptography, ethical hacking, security protocols.</p>
+              <p><strong>Cloud Computing:</strong> AWS, Azure, Google Cloud. Infrastructure as a Service, Platform as a Service.</p>
+              <p><strong>Mobile Development:</strong> Native apps (iOS/Android), cross-platform frameworks, mobile UI/UX.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Academic Calendar -->
+        <section style="margin: 3rem 0;">
+          <div class="card">
+            <div class="card-header">
+              <h2>Academic Calendar 2024-2025</h2>
+            </div>
+            <div style="overflow-x: auto;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="badge">Term 1</span></td>
+                    <td>September 9 - December 20, 2024</td>
+                    <td>First semester lectures and assessments</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge">Exam 1</span></td>
+                    <td>December 23 - January 10, 2025</td>
+                    <td>First semester examinations</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge">Term 2</span></td>
+                    <td>January 13 - April 18, 2025</td>
+                    <td>Second semester lectures and assessments</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge">Exam 2</span></td>
+                    <td>April 21 - May 9, 2025</td>
+                    <td>Second semester examinations</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge">Graduation</span></td>
+                    <td>May 25, 2025</td>
+                    <td>Degree conferment ceremony</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge">Holidays</span></td>
+                    <td>Various Dates</td>
+                    <td>Public holidays & university breaks as per academic calendar</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>The Department of Informatics and Computing at Bugema University is committed to excellence in technology education and research.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="academics.html"><i class="fas fa-book"></i> Academics</a><br>
+          <a href="staff.html"><i class="fas fa-users"></i> Faculty</a><br>
+          <a href="admissions.html"><i class="fas fa-user-plus"></i> Admissions</a><br>
+          <a href="student-portal.html"><i class="fas fa-door-open"></i> Student Portal</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+          <p><i class="fas fa-phone"></i> +256 (0) 312 266 900</p>
+          <p><i class="fas fa-envelope"></i> computing@bugema.ac.ug</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a><br>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a><br>
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Department of Informatics & Computing, Bugema University. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

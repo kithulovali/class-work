@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Profile - Goffart, Department of Informatics and Computing">
+  <title>Student Profile: Goffart | Department of Informatics & Computing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3H+J5wnEsA3mS7rjt46gF52D87Xjbn63fBu03vxvx6wjWDxSJc5AoX41togvAdE1f3MwRE/+v0A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .profile-header {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary-light);
+      border-radius: var(--radius-lg);
+      margin-bottom: 2rem;
+    }
+
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--primary-blue);
+      box-shadow: var(--shadow-lg);
+      margin: 0 auto 1rem;
+    }
+
+    .profile-name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 0.5rem 0;
+    }
+
+    .profile-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .info-item {
+      background: white;
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .info-label {
+      color: var(--text-muted);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .info-value {
+      color: var(--primary-dark);
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .stat-badge {
+      background: var(--primary-blue);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      display: inline-block;
+      margin: 0.5rem;
+    }
+
+    .achievement {
+      border-left: 4px solid var(--accent-yellow);
+      padding: 1rem;
+      margin: 1rem 0;
+      background: rgba(255, 193, 7, 0.05);
+      border-radius: var(--radius-md);
+    }
+
+    .grade-bar {
+      height: 8px;
+      background: var(--border-light);
+      border-radius: var(--radius-full);
+      margin: 0.5rem 0;
+      overflow: hidden;
+    }
+
+    .grade-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-blue), var(--accent-yellow));
+      border-radius: var(--radius-full);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header & Navigation -->
+    <header>
+      <div class="header-content">
+        <div class="logo-area">
+          <img src="work/bu.png" alt="Bugema University Logo" class="logo-img">
+          <div class="dept-title">
+            <h1>Informatics & Computing</h1>
+            <p>Bugema University</p>
+          </div>
+        </div>
+        <nav>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="admissions.html">Admissions</a>
+            <a href="academics.html">Academics</a>
+            <a href="staff.html">Staff</a>
+            <a href="student-portal.html">Portal</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="container">
+        <!-- Profile Header -->
+        <div class="profile-header" style="animation: slideUp 0.8s ease-out;">
+          <img src="work/goffart_2024.jpeg" alt="Goffart Profile" class="profile-image" style="animation: zoomIn 0.8s ease-out 0.1s both;">
+          <h1 class="profile-name" style="animation: slideDown 0.6s ease-out 0.1s both;">Goffart Nzeyimana</h1>
+          <p style="color: var(--primary-blue); font-size: 1.2rem; margin: 0.5rem 0; animation: slideUp 0.6s ease-out 0.2s both;">
+            <i class="fas fa-graduation-cap"></i> Year 3 Computer Science Student
+          </p>
+          <p style="color: var(--text-muted); margin: 1rem 0; animation: fadeIn 0.6s ease-out 0.3s both;">
+            GPA: 3.82/4.0 <span class="stat-badge" style="background: var(--accent-yellow); color: var(--text-dark); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); font-size: 0.85rem;">Distinction</span>
+          </p>
+        </div>
+
+        <!-- Profile Information Grid -->
+        <section class="profile-info">
+          <div class="info-item">
+            <div class="info-label">Email</div>
+            <div class="info-value" style="font-size: 1rem;"><a href="mailto:goffart@bugema.ac.ug">goffart@bugema.ac.ug</a></div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Phone</div>
+            <div class="info-value" style="font-size: 1rem;">+256 701 234 567</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Program</div>
+            <div class="info-value">B.Sc Computer Science</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Enrollment Date</div>
+            <div class="info-value">September 2022</div>
+          </div>
+        </section>
+
+        <!-- Academic Performance -->
+        <section style="margin: 3rem 0;">
+          <div class="card">
+            <div class="card-header">
+              <h2>Academic Performance</h2>
+            </div>
+            
+            <h3 style="color: var(--primary-blue); margin-top: 1.5rem;">Current Semester Courses</h3>
+            <table style="margin-top: 1rem;">
+              <thead>
+                <tr>
+                  <th>Course Code</th>
+                  <th>Course Title</th>
+                  <th>Credits</th>
+                  <th>Grade</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CS301</td>
+                  <td>Artificial Intelligence & Machine Learning</td>
+                  <td>4</td>
+                  <td>A (4.0)</td>
+                  <td><span class="badge">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>CS302</td>
+                  <td>Cloud Computing & AWS</td>
+                  <td>3</td>
+                  <td>A- (3.8)</td>
+                  <td><span class="badge">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>CS303</td>
+                  <td>IoT Systems & Embedded Programming</td>
+                  <td>4</td>
+                  <td>A (4.0)</td>
+                  <td><span class="badge">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>CS304</td>
+                  <td>Cybersecurity Fundamentals</td>
+                  <td>3</td>
+                  <td>A- (3.8)</td>
+                  <td><span class="badge">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>CS305</td>
+                  <td>Final Year Project: Smart IoT Device</td>
+                  <td>6</td>
+                  <td>A (4.0)</td>
+                  <td><span class="badge-accent">In Progress</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3 style="color: var(--primary-blue); margin-top: 2rem;">Overall GPA Trend</h3>
+            <div style="margin-top: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600;">Year 1 - GPA 3.6</span>
+                <span style="color: var(--text-muted);">90%</span>
+              </div>
+              <div class="grade-bar">
+                <div class="grade-fill" style="width: 90%;"></div>
+              </div>
+              
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; margin-top: 1.5rem;">
+                <span style="font-weight: 600;">Year 2 - GPA 3.85</span>
+                <span style="color: var(--text-muted);">96%</span>
+              </div>
+              <div class="grade-bar">
+                <div class="grade-fill" style="width: 96%;"></div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; margin-top: 1.5rem;">
+                <span style="font-weight: 600;">Year 3 - GPA 3.92 (Current)</span>
+                <span style="color: var(--text-muted);">98%</span>
+              </div>
+              <div class="grade-bar">
+                <div class="grade-fill" style="width: 98%;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills & Expertise -->
+        <section style="margin: 3rem 0;">
+          <h2 style="margin-bottom: 2rem;">Technical Skills & Expertise</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                <i class="fas fa-code"></i> Programming Languages
+              </h3>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="badge">Python</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">C/C++</span>
+                <span class="badge">Java</span>
+                <span class="badge">Arduino</span>
+                <span class="badge">SQL</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                <i class="fas fa-tools"></i> Technologies & Platforms
+              </h3>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="badge">IoT Platforms</span>
+                <span class="badge">AWS</span>
+                <span class="badge">Docker</span>
+                <span class="badge">TensorFlow</span>
+                <span class="badge">React</span>
+                <span class="badge">Linux</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                <i class="fas fa-brain"></i> Core Competencies
+              </h3>
+              <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow);"></i> Embedded Systems Development</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow);"></i> Machine Learning & AI</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow);"></i> IoT Solution Design</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow);"></i> Cloud Architecture</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                <i class="fas fa-user-tie"></i> Soft Skills
+              </h3>
+              <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow);"></i> Leadership & Team Management</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow);"></i> Problem Solving</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow);"></i> Communication & Presentation</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow);"></i> Project Management</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Achievements & Recognition -->
+        <section style="margin: 3rem 0;">
+          <h2 style="margin-bottom: 2rem;">Achievements & Recognition</h2>
+          
+          <div class="achievement">
+            <h3 style="color: var(--accent-yellow-dark); margin-bottom: 0.5rem;">
+              <i class="fas fa-trophy"></i> Dean's List Recognition
+            </h3>
+            <p>Recognized for exceptional academic excellence in Year 2 and Year 3, maintaining GPA above 3.8</p>
+          </div>
+
+          <div class="achievement">
+            <h3 style="color: var(--accent-yellow-dark); margin-bottom: 0.5rem;">
+              <i class="fas fa-award"></i> Best IoT Project Award
+            </h3>
+            <p>Winner of 2023 Department Innovation Challenge for "Smart Agriculture Monitoring System" - an IoT solution for remote farm monitoring</p>
+          </div>
+
+          <div class="achievement">
+            <h3 style="color: var(--accent-yellow-dark); margin-bottom: 0.5rem;">
+              <i class="fas fa-certificate"></i> AWS Certified Cloud Practitioner
+            </h3>
+            <p>Successfully obtained AWS Certification demonstrating proficiency in cloud computing and AWS services (2024)</p>
+          </div>
+
+          <div class="achievement">
+            <h3 style="color: var(--accent-yellow-dark); margin-bottom: 0.5rem;">
+              <i class="fas fa-code"></i> Open Source Contributions
+            </h3>
+            <p>Active contributor to Embedded Systems open-source projects, with multiple merged pull requests focusing on IoT device drivers</p>
+          </div>
+
+          <div class="achievement">
+            <h3 style="color: var(--accent-yellow-dark); margin-bottom: 0.5rem;">
+              <i class="fas fa-presentation"></i> Research Publications
+            </h3>
+            <p>Co-authored paper on "Efficient Resource Management in IoT Networks" presented at 2024 Regional Tech Conference</p>
+          </div>
+        </section>
+
+        <!-- Final Year Project -->
+        <section style="margin: 3rem 0;">
+          <div class="card">
+            <div class="card-header">
+              <h2>Final Year Project</h2>
+            </div>
+            
+            <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+              Smart IoT-Based Home Automation & Energy Management System
+            </h3>
+            <p>
+              <strong>Project Overview:</strong> Developing an integrated IoT platform for home automation that monitors and manages energy consumption in real-time. The system uses machine learning algorithms to predict usage patterns and optimize power distribution.
+            </p>
+            
+            <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Key Features:</h4>
+            <ul style="list-style-position: inside; line-height: 2;">
+              <li><strong>Real-time Monitoring:</strong> IoT sensors for temperature, humidity, light, and energy consumption</li>
+              <li><strong>Smart Control:</strong> Automated device switching based on occupancy and energy prices</li>
+              <li><strong>ML-Powered Prediction:</strong> TensorFlow models for energy usage forecasting</li>
+              <li><strong>Mobile Dashboard:</strong> React Native app for remote monitoring and control</li>
+              <li><strong>Cloud Integration:</strong> AWS services for data storage and processing</li>
+            </ul>
+
+            <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Project Status:</h4>
+            <div style="margin-top: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600;">Hardware Setup & Prototyping</span>
+                <span style="color: var(--text-muted);">100%</span>
+              </div>
+              <div class="grade-bar">
+                <div class="grade-fill" style="width: 100%;"></div>
+              </div>
+              
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; margin-top: 1rem;">
+                <span style="font-weight: 600;">Backend & ML Development</span>
+                <span style="color: var(--text-muted);">85%</span>
+              </div>
+              <div class="grade-bar">
+                <div class="grade-fill" style="width: 85%;"></div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; margin-top: 1rem;">
+                <span style="font-weight: 600;">Mobile App Development</span>
+                <span style="color: var(--text-muted);">75%</span>
+              </div>
+              <div class="grade-bar">
+                <div class="grade-fill" style="width: 75%;"></div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; margin-top: 1rem;">
+                <span style="font-weight: 600;">Testing & Documentation</span>
+                <span style="color: var(--text-muted);">60%</span>
+              </div>
+              <div class="grade-bar">
+                <div class="grade-fill" style="width: 60%;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact & Connect -->
+        <section style="text-align: center; margin: 3rem 0; padding: 2rem; background: var(--primary-light); border-radius: var(--radius-lg);">
+          <h2 style="color: var(--primary-blue); margin-bottom: 1rem;">Connect With Goffart</h2>
+          <p style="margin-bottom: 2rem;">Email me for collaborations, project discussions, or mentorship inquiries</p>
+          <a href="mailto:goffart@bugema.ac.ug" class="btn btn-primary">Send Email</a>
+          <a href="contact.html" class="btn btn-secondary" style="margin-left: 1rem;">Use Contact Form</a>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>The Department of Informatics and Computing at Bugema University is committed to excellence in technology education and research.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="academics.html"><i class="fas fa-book"></i> Academics</a><br>
+          <a href="staff.html"><i class="fas fa-users"></i> Faculty</a><br>
+          <a href="admissions.html"><i class="fas fa-user-plus"></i> Admissions</a><br>
+          <a href="student-portal.html"><i class="fas fa-door-open"></i> Student Portal</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+          <p><i class="fas fa-phone"></i> +256 (0) 312 266 900</p>
+          <p><i class="fas fa-envelope"></i> computing@bugema.ac.ug</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a><br>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a><br>
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Department of Informatics & Computing, Bugema University. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

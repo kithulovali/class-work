@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goffart · IoT & embedded</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Inter (clean, modern) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* minimal reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f8fe;
+      color: #1a2b3e;
+      line-height: 1.5;
+      padding: 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    /* --- header: logo + nav --- */
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0.5rem 0 2rem;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 8px 20px -6px rgba(0,60,130,0.2);
+      margin-bottom: 1rem;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1rem;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0.6rem 1.2rem;
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #1e4b73;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav a i { font-size: 1rem; opacity: 0.8; }
+
+    .nav a:hover {
+      background: white;
+      color: #1d4ed8;
+      box-shadow: 0 2px 8px rgba(0,80,130,0.1);
+    }
+
+    .nav a.active {
+      background: #1d4ed8;
+      color: white;
+    }
+
+    /* --- main profile card (light, minimal) --- */
+    .profile {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 36px;
+      padding: 2rem 2rem 2.5rem;
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 12px 30px -12px rgba(0,40,70,0.15);
+      margin-bottom: 2rem;
+    }
+
+    /* header section */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 8px 18px -6px #1d4ed8;
+    }
+
+    .avatar-fallback {
+      display: none;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #2563eb, #1e3f8f);
+      color: white;
+      font-size: 4rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .name h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0a2b44;
+      line-height: 1.2;
+    }
+
+    .focus {
+      font-size: 1.2rem;
+      color: #1d5b99;
+      background: rgba(29,78,216,0.08);
+      padding: 0.4rem 1.4rem;
+      border-radius: 60px;
+      display: inline-block;
+      border: 1px solid #c1dafe;
+    }
+
+    /* sections */
+    .section {
+      margin: 2.2rem 0 1.8rem;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0d3557;
+      border-left: 6px solid #1d4ed8;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title i { color: #1d4ed8; }
+
+    .about {
+      background: rgba(255,255,255,0.5);
+      padding: 1.5rem 2rem;
+      border-radius: 28px;
+      border: 1px solid #dae9ff;
+      font-size: 1.05rem;
+      color: #1e3e5e;
+    }
+
+    /* tech grid */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .tech-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid #dae9ff;
+      transition: 0.15s;
+    }
+
+    .tech-card:hover {
+      background: #f4faff;
+      border-color: #1d4ed8;
+    }
+
+    .tech-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0d2e4e;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tech-card p {
+      color: #2d4a70;
+      font-size: 0.95rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .tag {
+      background: #eaf1ff;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1d4ed8;
+      border: 1px solid #bfd9ff;
+    }
+
+    /* projects grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.3rem 1.5rem;
+      border: 1px solid #dae9ff;
+    }
+
+    .project-card h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0d2e4e;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-card p {
+      color: #2d4a70;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* hobby list (minimal) */
+    .hobby-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .hobby-list li {
+      background: white;
+      border-radius: 50px;
+      padding: 0.7rem 1.2rem;
+      border: 1px solid #dae9ff;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1rem;
+      color: #1a3a5a;
+    }
+
+    .hobby-list li i { color: #1d4ed8; width: 1.5rem; }
+
+    /* contact bar */
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem 2.5rem;
+      margin-top: 2.5rem;
+      padding: 1.2rem 1.8rem;
+      background: rgba(255,255,255,0.5);
+      border-radius: 60px;
+      border: 1px solid #d2e2fc;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #1d4a77;
+      font-size: 1rem;
+    }
+
+    .contact-item i { color: #1d4ed8; font-size: 1.2rem; }
+
+    .contact-item a {
+      color: #1d4a77;
+      text-decoration: none;
+      border-bottom: 1px dotted transparent;
+    }
+
+    .contact-item a:hover { border-bottom-color: #1d4ed8; }
+
+    /* footer */
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5f7fa0;
+      margin: 1rem 0;
+    }
+
+    /* responsive adjustments */
+    @media (max-width: 600px) {
+      .profile { padding: 1.5rem; }
+      .profile-header { flex-direction: column; text-align: center; }
+      .name h1 { font-size: 1.8rem; }
+      .focus { font-size: 1rem; }
+      .section-title { font-size: 1.3rem; }
+      .tech-grid, .project-grid, .hobby-list { grid-template-columns: 1fr; }
+      .contact { flex-direction: column; align-items: center; gap: 1rem; }
+      .nav a { font-size: 0.85rem; padding: 0.3rem 0.8rem; }
+    }
+
+    /* simple fade */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header with logo and nav -->
+  <div class="header">
+    <img class="logo" src="bu.png" alt="Bugema" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'48\' fill=\'%230e3b5e\'/%3E%3Ctext x=\'25\' y=\'70\' font-family=\'Arial\' font-size=\'44\' fill=\'white\' font-weight=\'bold\'%3EBU%3C/text%3E%3C/svg%3E';">
+    <nav class="nav">
+      <a href="department.html"><i class="fas fa-university"></i> Department</a>
+      <a href="links.html"><i class="fas fa-link"></i> Learning </a>
+      <a href="profile.html" class="active"><i class="fas fa-id-card"></i> Profile</a>
+      <a href="registration.html"><i class="fas fa-pen"></i> Registration</a>
+      <a href="timetable.html"><i class="fas fa-table"></i> Timetable</a>
+    </nav>
+  </div>
+
+  <!-- main profile section -->
+  <div class="profile fade-in" id="profileCard">
+    <!-- profile header -->
+    <div class="profile-header">
+      <img class="avatar" src="goffart_2024.jpeg" alt="Goffart" id="profileImg" onerror="handleImageError()">
+      <div class="avatar-fallback" id="imgFallback">G</div>
+      <div class="name">
+        <h1>Goffart Jean Marc<br>Kithulovali</h1>
+        <span class="focus"><i class="fas fa-microchip"></i> IoT · Embedded · Python · Rust</span>
+      </div>
+    </div>
+
+    <!-- about (concise) -->
+    <div class="section">
+      <div class="section-title"><i class="fas fa-user"></i> About</div>
+      <div class="about">
+        <p>I'm Goffart – passionate about connecting hardware and software. I focus on <strong>IoT, embedded systems, Python, and Rust</strong>. I enjoy building efficient firmware, exploring wireless protocols, and writing safe, fast code. Currently tinkering with ESP32, STM32, and embedded Rust.</p>
+      </div>
+    </div>
+
+    <!-- technical focus (simple cards) -->
+    <div class="section">
+      <div class="section-title"><i class="fas fa-cogs"></i> Technical focus</div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3><i class="fas fa-wifi"></i> IoT</h3>
+          <p>ESP32, LoRa, MQTT, sensor networks.</p>
+          <div class="tags"><span class="tag">ESP32</span><span class="tag">LoRa</span><span class="tag">MQTT</span></div>
+        </div>
+        <div class="tech-card">
+          <h3><i class="fas fa-microchip"></i> Embedded</h3>
+          <p>C, FreeRTOS, ARM Cortex, low-power.</p>
+          <div class="tags"><span class="tag">C</span><span class="tag">FreeRTOS</span><span class="tag">STM32</span></div>
+        </div>
+        <div class="tech-card">
+          <h3><i class="fab fa-python"></i> Python</h3>
+          <p>MicroPython, automation, data viz.</p>
+          <div class="tags"><span class="tag">MicroPython</span><span class="tag">Flask</span></div>
+        </div>
+        <div class="tech-card">
+          <h3><i class="fas fa-crab"></i> Rust</h3>
+          <p>embedded-hal, no_std, RTIC.</p>
+          <div class="tags"><span class="tag">embedded-hal</span><span class="tag">RTIC</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- projects (simple) -->
+    <div class="section">
+      <div class="section-title"><i class="fas fa-laptop-code"></i> Projects</div>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>LoRa Soil Monitor</h4>
+          <p>ESP32 + LoRa, MicroPython, central dashboard.</p>
+          <div class="tags"><span class="tag">ESP32</span><span class="tag">LoRa</span></div>
+        </div>
+        <div class="project-card">
+          <h4>Rusty STM32 Blink</h4>
+          <p>RTIC framework, embedded-hal, GPIO control.</p>
+          <div class="tags"><span class="tag">Rust</span><span class="tag">STM32</span></div>
+        </div>
+        <div class="project-card">
+          <h4>Home MQTT Hub</h4>
+          <p>Python + asyncio, Zigbee bridge, React dashboard.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">MQTT</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- hobbies (kept original) -->
+    <div class="section">
+      <div class="section-title"><i class="fas fa-heart"></i> Hobbies</div>
+      <ul class="hobby-list">
+        <li><i class="fas fa-laptop"></i> Programming (embedded fun)</li>
+        <li><i class="fas fa-square-root-variable"></i> Random math</li>
+        <li><i class="fas fa-calendar-plus"></i> Planning the improbable</li>
+        <li><i class="fas fa-mug-hot"></i> Drinking tea while debugging</li>
+      </ul>
+    </div>
+
+    <!-- contact -->
+    <div class="contact">
+      <span class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:goffart@bugemauniv.ac.ug">goffart@bugemauniv.ac.ug</a></span>
+      <span class="contact-item"><i class="fab fa-github"></i> <a href="#">github.com/goffart</a></span>
+      <span class="contact-item"><i class="fab fa-linkedin"></i> <a href="#">linkedin.com/in/goffart</a></span>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer">
+    <p><i class="fas fa-copyright"></i> 2026 Goffart · Bugema University — Computing & Informatics</p>
+  </div>
+</div>
+
+<!-- scripts -->
+<script>
+  function handleImageError() {
+    const img = document.getElementById('profileImg');
+    const fallback = document.getElementById('imgFallback');
+    if (img) img.style.display = 'none';
+    if (fallback) {
+      fallback.style.display = 'flex';
+      fallback.textContent = 'G';
+    }
+  }
+
+  // simple scroll fade
+  (function() {
+    const el = document.querySelector('.fade-in');
+    if (el) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.2 });
+      observer.observe(el);
+    }
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bugema · learning links | Computing & Informatics</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Inter (clean, modern) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* minimal reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f8fe;
+      color: #1a2b3e;
+      line-height: 1.5;
+      padding: 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    /* --- header: logo + nav --- */
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0.5rem 0 2rem;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 8px 20px -6px rgba(0,60,130,0.2);
+      margin-bottom: 1rem;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1rem;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0.6rem 1.2rem;
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #1e4b73;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav a i { font-size: 1rem; opacity: 0.8; }
+
+    .nav a:hover {
+      background: white;
+      color: #1d4ed8;
+      box-shadow: 0 2px 8px rgba(0,80,130,0.1);
+    }
+
+    .nav a.active {
+      background: #1d4ed8;
+      color: white;
+    }
+
+    /* --- main links card (light, minimal) --- */
+    .links-card {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 36px;
+      padding: 2rem 2rem 2.5rem;
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 12px 30px -12px rgba(0,40,70,0.15);
+      margin-bottom: 2rem;
+    }
+
+    .links-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .links-header h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0a2b44;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .links-header h2 i { color: #1d4ed8; }
+
+    .resource-badge {
+      background: rgba(29,78,216,0.08);
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      color: #1d5b99;
+      border: 1px solid #c1dafe;
+    }
+
+    /* simple intro */
+    .intro {
+      margin-bottom: 1.8rem;
+      font-size: 1rem;
+      color: #2d4b72;
+    }
+
+    /* link list — clean, no extra cards */
+    .links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 60px;
+      padding: 0.7rem 1.2rem 0.7rem 0.7rem;
+      border: 1px solid #e2eaf5;
+      transition: 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .link-item:hover {
+      background: #f0f7ff;
+      border-color: #1d4ed8;
+      transform: translateX(5px);
+    }
+
+    .link-icon {
+      width: 44px;
+      height: 44px;
+      background: #e9f1fe;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-right: 1rem;
+      color: #1d4ed8;
+      flex-shrink: 0;
+    }
+
+    .link-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+
+    .link-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #17345c;
+    }
+
+    .link-url {
+      font-size: 0.85rem;
+      color: #4f6f92;
+      background: #ecf3fd;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #d0e1fc;
+      word-break: break-all;
+    }
+
+    .link-arrow {
+      color: #1d4ed8;
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+      opacity: 0.6;
+      transition: 0.2s;
+    }
+
+    .link-item:hover .link-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+
+    /* footer */
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5f7fa0;
+      margin: 1rem 0;
+    }
+
+    /* responsive */
+    @media (max-width: 600px) {
+      .links-card { padding: 1.5rem; }
+      .links-header h2 { font-size: 1.5rem; }
+      .nav a { font-size: 0.85rem; padding: 0.3rem 0.8rem; }
+      .link-content { flex-direction: column; align-items: flex-start; }
+      .link-url { align-self: flex-start; }
+      .link-item { padding: 0.8rem; }
+    }
+
+    /* fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header with logo and nav -->
+ <div class="header">
+    <img class="logo" src="bu.png" alt="Bugema" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'48\' fill=\'%230e3b5e\'/%3E%3Ctext x=\'25\' y=\'70\' font-family=\'Arial\' font-size=\'44\' fill=\'white\' font-weight=\'bold\'%3EBU%3C/text%3E%3C/svg%3E';">
+    <nav class="nav">
+      <a href="department.html"><i class="fas fa-university"></i> Department</a>
+      <a href="#"><i class="fas fa-star"></i> Favorite</a>
+      <a href="links.html"><i class="fas fa-link"></i> Learning </a>
+      <a href="profile.html" class="active"><i class="fas fa-id-card"></i> Profile</a>
+      <a href="registration.html"><i class="fas fa-pen"></i> Registration</a>
+      <a href="timetable.html"><i class="fas fa-table"></i> Timetable</a>
+    </nav>
+  </div>
+
+  <!-- main links card -->
+  <div class="links-card fade-in" id="linksCard">
+    <div class="links-header">
+      <h2><i class="fas fa-bookmark"></i> Learning links</h2>
+      <span class="resource-badge">5 platforms · vetted</span>
+    </div>
+
+    <div class="intro">
+      Recommended by faculty & industry — click to explore.
+    </div>
+
+    <div class="links-list">
+      <!-- Cisco -->
+      <a href="https://learningnetwork.cisco.com/s/" class="link-item" target="_blank" rel="noopener">
+        <div class="link-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="link-content">
+          <span class="link-title">Cisco Learning Network</span>
+          <span class="link-url">learningnetwork.cisco.com</span>
+        </div>
+        <span class="link-arrow"><i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <!-- W3Schools -->
+      <a href="https://www.w3schools.com/" class="link-item" target="_blank" rel="noopener">
+        <div class="link-icon"><i class="fab fa-html5"></i></div>
+        <div class="link-content">
+          <span class="link-title">W3Schools · web dev</span>
+          <span class="link-url">w3schools.com</span>
+        </div>
+        <span class="link-arrow"><i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <!-- GeeksforGeeks -->
+      <a href="https://www.geeksforgeeks.org/" class="link-item" target="_blank" rel="noopener">
+        <div class="link-icon"><i class="fas fa-code"></i></div>
+        <div class="link-content">
+          <span class="link-title">GeeksforGeeks</span>
+          <span class="link-url">geeksforgeeks.org</span>
+        </div>
+        <span class="link-arrow"><i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <!-- Google Skills -->
+      <a href="https://www.skills.google/" class="link-item" target="_blank" rel="noopener">
+        <div class="link-icon"><i class="fab fa-google"></i></div>
+        <div class="link-content">
+          <span class="link-title">Google Skillshop</span>
+          <span class="link-url">skills.google</span>
+        </div>
+        <span class="link-arrow"><i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <!-- Microsoft Learn -->
+      <a href="https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/" class="link-item" target="_blank" rel="noopener">
+        <div class="link-icon"><i class="fab fa-microsoft"></i></div>
+        <div class="link-content">
+          <span class="link-title">Microsoft Learn · AI</span>
+          <span class="link-url">learn.microsoft.com</span>
+        </div>
+        <span class="link-arrow"><i class="fas fa-arrow-right"></i></span>
+      </a>
+    </div>
+
+    <!-- subtle note -->
+    <p style="margin-top: 2rem; font-size: 0.8rem; color: #7799bb; border-top: 1px dashed #d8e5f5; padding-top: 1rem; text-align: center;">
+      <i class="fas fa-external-link-alt"></i> All links open in a new tab · demo purpose
+    </p>
+  </div>
+
+  <!-- footer -->
+  <div class="footer">
+    <p><i class="fas fa-copyright"></i> 2026 Bugema University — Computing & Informatics</p>
+  </div>
+</div>
+
+<!-- scroll animation -->
+<script>
+  (function() {
+    const el = document.querySelector('.fade-in');
+    if (el) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.2 });
+      observer.observe(el);
+    }
+  })();
+</script>
+</body>
+</html>

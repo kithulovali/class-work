@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Portal - Access academic resources, grades, and course materials">
+  <title>Student Portal | Department of Informatics & Computing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3H+J5wnEsA3mS7rjt46gF52D87Xjbn63fBu03vxvx6wjWDxSJc5AoX41togvAdE1f3MwRE/+v0A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .dashboard-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      border-left: 4px solid var(--primary-blue);
+      transition: all 0.3s ease;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .dashboard-card.accent {
+      border-left-color: var(--accent-yellow);
+    }
+
+    .dashboard-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .dashboard-card i {
+      color: var(--primary-blue);
+      font-size: 1.5rem;
+    }
+
+    .dashboard-card.accent i {
+      color: var(--accent-yellow);
+    }
+
+    .dashboard-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin: 1rem 0;
+    }
+
+    .dashboard-card.accent .dashboard-value {
+      color: var(--accent-yellow-dark);
+    }
+
+    .resource-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .resource-list li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .resource-list li:last-child {
+      border-bottom: none;
+    }
+
+    .resource-list a {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .resource-list a:hover {
+      color: var(--primary-dark);
+    }
+
+    .resource-list i {
+      color: var(--accent-yellow);
+      min-width: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header & Navigation -->
+    <header>
+      <div class="header-content">
+        <div class="logo-area">
+          <img src="work/bu.png" alt="Bugema University Logo" class="logo-img">
+          <div class="dept-title">
+            <h1>Informatics & Computing</h1>
+            <p>Bugema University</p>
+          </div>
+        </div>
+        <nav>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="admissions.html">Admissions</a>
+            <a href="academics.html">Academics</a>
+            <a href="staff.html">Staff</a>
+            <a href="student-portal.html" class="active">Portal</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="container">
+        <!-- Hero -->
+        <section class="hero" style="animation: slideDown 0.8s ease-out;">
+          <div class="hero-content">
+            <h1 style="animation: slideUp 0.6s ease-out 0.2s both;">Student Portal</h1>
+            <p style="animation: slideUp 0.6s ease-out 0.3s both;">Your Academic Hub</p>
+          </div>
+        </section>
+
+        <!-- Dashboard Welcome -->
+        <section style="margin: 2rem 0; padding: 2rem; background: var(--primary-light); border-radius: var(--radius-lg); animation: slideUp 0.6s ease-out 0.1s both;" class="fade-in-up">
+          <h2 style="color: var(--primary-blue); margin-bottom: 1rem; animation: slideDown 0.6s ease-out 0.2s both;">
+            <i class="fas fa-user-circle"></i> Welcome Back!
+          </h2>
+          <p style="animation: fadeIn 0.6s ease-out 0.3s both;">Access grades, courses, and resources in one place.</p>
+        </section>
+
+        <!-- Dashboard Cards -->
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3><i class="fas fa-graduation-cap"></i> My Grades</h3>
+            <p style="color: var(--text-muted); margin: 0;">Current Semester GPA</p>
+            <div class="dashboard-value">3.92</div>
+            <a href="#grades" class="btn btn-secondary" style="width: 100%; text-align: center;">View Details</a>
+          </div>
+
+          <div class="dashboard-card">
+            <h3><i class="fas fa-book"></i> Current Courses</h3>
+            <p style="color: var(--text-muted); margin: 0;">Enrolled Courses</p>
+            <div class="dashboard-value">5</div>
+            <a href="#courses" class="btn btn-secondary" style="width: 100%; text-align: center;">View Courses</a>
+          </div>
+
+          <div class="dashboard-card accent">
+            <h3><i class="fas fa-exclamation-triangle"></i> Pending Tasks</h3>
+            <p style="color: var(--text-muted); margin: 0;">Action Required</p>
+            <div class="dashboard-value">2</div>
+            <a href="#tasks" class="btn btn-accent" style="width: 100%; text-align: center;">View Tasks</a>
+          </div>
+
+          <div class="dashboard-card">
+            <h3><i class="fas fa-calendar-alt"></i> Next Exam</h3>
+            <p style="color: var(--text-muted); margin: 0;">Advanced Web Dev</p>
+            <div style="font-size: 1.2rem; font-weight: 600; color: var(--primary-blue); margin: 1rem 0;">December 20</div>
+            <a href="#calendar" class="btn btn-secondary" style="width: 100%; text-align: center;">View Schedule</a>
+          </div>
+
+          <div class="dashboard-card">
+            <h3><i class="fas fa-envelope"></i> Messages</h3>
+            <p style="color: var(--text-muted); margin: 0;">Unread Messages</p>
+            <div class="dashboard-value">3</div>
+            <a href="#messages" class="btn btn-secondary" style="width: 100%; text-align: center;">Check Messages</a>
+          </div>
+
+          <div class="dashboard-card accent">
+            <h3><i class="fas fa-files"></i> Assignments</h3>
+            <p style="color: var(--text-muted); margin: 0;">Due This Week</p>
+            <div class="dashboard-value">1</div>
+            <a href="#assignments" class="btn btn-accent" style="width: 100%; text-align: center;">View All</a>
+          </div>
+        </div>
+
+        <!-- Main Portal Sections -->
+        <div class="grid-2" style="margin: 3rem 0;">
+          <!-- Left Column -->
+          <div>
+            <!-- Courses -->
+            <section style="margin-bottom: 2rem;">
+              <div class="card">
+                <div class="card-header">
+                  <h2 id="courses">My Courses</h2>
+                </div>
+                <ul class="resource-list">
+                  <li>
+                    <a href="#course1">
+                      <i class="fas fa-code"></i>
+                      <span><strong>AI & Machine Learning</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Dr. Kofi Mensah | 4 Credits</span></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#course2">
+                      <i class="fas fa-cloud"></i>
+                      <span><strong>Cloud Computing & AWS</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Eng. Michael Njoroge | 3 Credits</span></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#course3">
+                      <i class="fas fa-microchip"></i>
+                      <span><strong>IoT Systems & Embedded</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Prof. Sarah Mukama | 4 Credits</span></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#course4">
+                      <i class="fas fa-shield-alt"></i>
+                      <span><strong>Cybersecurity Fundamentals</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Eng. Francis Kipchoge | 3 Credits</span></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#project">
+                      <i class="fas fa-project-diagram"></i>
+                      <span><strong>Final Year Project</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">All Faculty | 6 Credits</span></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- Upcoming Exams -->
+            <section>
+              <div class="card">
+                <div class="card-header">
+                  <h2 id="calendar">Upcoming Exams</h2>
+                </div>
+                <table style="width: 100%; font-size: 0.95rem;">
+                  <thead>
+                    <tr style="border-bottom: 2px solid var(--primary-blue);">
+                      <th style="padding: 0.8rem; text-align: left;">Course</th>
+                      <th style="padding: 0.8rem; text-align: left;">Date</th>
+                      <th style="padding: 0.8rem; text-align: center;">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                      <td style="padding: 0.8rem;">AWS Cloud Computing</td>
+                      <td style="padding: 0.8rem;">Dec 18</td>
+                      <td style="padding: 0.8rem; text-align: center;"><span class="badge">Upcoming</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                      <td style="padding: 0.8rem;">Machine Learning I</td>
+                      <td style="padding: 0.8rem;">Dec 20</td>
+                      <td style="padding: 0.8rem; text-align: center;"><span class="badge">Upcoming</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                      <td style="padding: 0.8rem;">IoT Programming</td>
+                      <td style="padding: 0.8rem;">Dec 22</td>
+                      <td style="padding: 0.8rem; text-align: center;"><span class="badge">Upcoming</span></td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 0.8rem;">Cybersecurity</td>
+                      <td style="padding: 0.8rem;">Jan 7</td>
+                      <td style="padding: 0.8rem; text-align: center;"><span class="badge" style="background: var(--primary-light); color: var(--text-muted);">Regular</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <!-- Right Column -->
+          <div>
+            <!-- Pending Tasks -->
+            <section style="margin-bottom: 2rem;">
+              <div class="card">
+                <div class="card-header">
+                  <h2 id="tasks">Action Required</h2>
+                </div>
+                <ul class="resource-list">
+                  <li style="background: rgba(255, 193, 7, 0.05); padding: 1rem; border-radius: var(--radius-md); border: none;">
+                    <strong style="color: var(--accent-yellow-dark);">Submit Project Report</strong>
+                    <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">
+                      <i class="fas fa-calendar"></i> Due: December 15, 2024
+                    </div>
+                    <div style="margin-top: 0.8rem;">
+                      <a href="#" class="btn btn-accent" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Submit Now</a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="resource-list">
+                  <li style="background: rgba(255, 193, 7, 0.05); padding: 1rem; border-radius: var(--radius-md); border: none;">
+                    <strong style="color: var(--accent-yellow-dark);">Confirm Course Registration</strong>
+                    <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">
+                      <i class="fas fa-calendar"></i> Due: December 10, 2024
+                    </div>
+                    <div style="margin-top: 0.8rem;">
+                      <a href="#" class="btn btn-accent" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Confirm</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- Quick Resources -->
+            <section>
+              <div class="card">
+                <div class="card-header">
+                  <h2>Quick Resources</h2>
+                </div>
+                <ul class="resource-list">
+                  <li><a href="#"><i class="fas fa-download"></i> Lecture Slides</a></li>
+                  <li><a href="#"><i class="fas fa-book"></i> Study Materials</a></li>
+                  <li><a href="#"><i class="fas fa-flask"></i> Lab Manuals</a></li>
+                  <li><a href="#"><i class="fas fa-file-pdf"></i> Previous Exams</a></li>
+                  <li><a href="#"><i class="fas fa-video"></i> Recorded Lectures</a></li>
+                  <li><a href="#"><i class="fas fa-users"></i> Study Groups</a></li>
+                  <li><a href="#"><i class="fas fa-headset"></i> Technical Support</a></li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Academic Progress -->
+        <section style="margin: 3rem 0;">
+          <div class="card">
+            <div class="card-header">
+              <h2 id="grades">Grade Tracker</h2>
+            </div>
+
+            <h3 style="color: var(--primary-blue); margin-top: 1.5rem; margin-bottom: 1rem;">Current Semester Performance</h3>
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Course Code</th>
+                  <th>Course Name</th>
+                  <th>Continuous Assessment</th>
+                  <th>Exam</th>
+                  <th>Overall Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CS301</td>
+                  <td>AI & Machine Learning</td>
+                  <td style="text-align: center;">35/40</td>
+                  <td style="text-align: center;">58/60</td>
+                  <td style="text-align: center;"><strong style="color: var(--primary-blue);">A (4.0)</strong></td>
+                </tr>
+                <tr>
+                  <td>CS302</td>
+                  <td>Cloud Computing & AWS</td>
+                  <td style="text-align: center;">33/40</td>
+                  <td style="text-align: center;">54/60</td>
+                  <td style="text-align: center;"><strong style="color: var(--primary-blue);">A- (3.8)</strong></td>
+                </tr>
+                <tr>
+                  <td>CS303</td>
+                  <td>IoT Systems & Embedded</td>
+                  <td style="text-align: center;">36/40</td>
+                  <td style="text-align: center;">59/60</td>
+                  <td style="text-align: center;"><strong style="color: var(--primary-blue);">A (4.0)</strong></td>
+                </tr>
+                <tr>
+                  <td>CS304</td>
+                  <td>Cybersecurity Fundamentals</td>
+                  <td style="text-align: center;">34/40</td>
+                  <td style="text-align: center;">56/60</td>
+                  <td style="text-align: center;"><strong style="color: var(--primary-blue);">A- (3.8)</strong></td>
+                </tr>
+                <tr style="background: var(--primary-light); font-weight: 600;">
+                  <td colspan="4" style="padding: 0.8rem;">Current Semester GPA</td>
+                  <td style="text-align: center; color: var(--primary-blue);">3.92 / 4.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Support Services -->
+        <section style="margin: 3rem 0;">
+          <h2 style="text-align: center; margin-bottom: 2rem;">Student Support Services</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <i class="fas fa-chalkboard"></i>
+              <h3>Academic Advising</h3>
+              <p>Schedule a meeting with your academic advisor to discuss course selection and academic progress</p>
+              <a href="contact.html" class="btn btn-secondary" style="margin-top: 1rem;">Book Appointment</a>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-graduation-cap"></i>
+              <h3>Career Services</h3>
+              <p>Explore internship opportunities, resume building, and job placement assistance</p>
+              <a href="contact.html" class="btn btn-secondary" style="margin-top: 1rem;">Learn More</a>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-headset"></i>
+              <h3>Technical Support</h3>
+              <p>Get help with online learning platform, course materials, and digital resources</p>
+              <a href="contact.html" class="btn btn-secondary" style="margin-top: 1rem;">Get Help</a>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-health"></i>
+              <h3>Student Wellness</h3>
+              <p>Access resources for mental health, physical wellness, and student counseling</p>
+              <a href="contact.html" class="btn btn-secondary" style="margin-top: 1rem;">Explore Services</a>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-code"></i>
+              <h3>Lab Access</h3>
+              <p>24/7 access to computing labs and development environments for your projects</p>
+              <a href="contact.html" class="btn btn-secondary" style="margin-top: 1rem;">Lab Info</a>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-link"></i>
+              <h3>Library Resources</h3>
+              <p>Digital and physical library resources, e-books, and research databases</p>
+              <a href="contact.html" class="btn btn-secondary" style="margin-top: 1rem;">Visit Library</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>The Department of Informatics and Computing at Bugema University is committed to excellence in technology education and research.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="academics.html"><i class="fas fa-book"></i> Academics</a><br>
+          <a href="staff.html"><i class="fas fa-users"></i> Faculty</a><br>
+          <a href="admissions.html"><i class="fas fa-user-plus"></i> Admissions</a><br>
+          <a href="student-portal.html"><i class="fas fa-door-open"></i> Student Portal</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+          <p><i class="fas fa-phone"></i> +256 (0) 312 266 900</p>
+          <p><i class="fas fa-envelope"></i> computing@bugema.ac.ug</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a><br>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a><br>
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Department of Informatics & Computing, Bugema University. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

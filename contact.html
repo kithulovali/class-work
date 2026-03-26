@@ -24,13 +24,15 @@
           </div>
         </div>
         <nav>
-          <div class="nav-links">
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="nav-links" id="navLinks">
             <a href="index.html">Home</a>
             <a href="admissions.html">Admissions</a>
-            <a href="academics.html">Academics</a>
-            <a href="staff.html">Staff</a>
+            <a href="program.html">Program</a>
+            <a href="about-staff.html">About & Staff</a>
             <a href="student-portal.html">Portal</a>
-            <a href="about.html">About</a>
             <a href="contact.html" class="active">Contact</a>
           </div>
         </nav>
@@ -284,7 +286,7 @@
         </div>
         <div class="footer-section">
           <h3>Quick Links</h3>
-          <a href="academics.html"><i class="fas fa-book"></i> Academics</a><br>
+          <a href="program.html"><i class="fas fa-book"></i> Program</a><br>
           <a href="staff.html"><i class="fas fa-users"></i> Faculty</a><br>
           <a href="admissions.html"><i class="fas fa-user-plus"></i> Admissions</a><br>
           <a href="student-portal.html"><i class="fas fa-door-open"></i> Student Portal</a>
@@ -307,5 +309,32 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav') && !e.target.closest('.menu-toggle')) {
+          menuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        }
+      });
+    }
+  </script>
 </body>
 </html>

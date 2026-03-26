@@ -24,13 +24,15 @@
           </div>
         </div>
         <nav>
-          <div class="nav-links">
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="nav-links" id="navLinks">
             <a href="index.html" class="active">Home</a>
             <a href="admissions.html">Admissions</a>
-            <a href="academics.html">Academics</a>
-            <a href="staff.html">Staff</a>
+            <a href="program.html">Program</a>
+            <a href="about-staff.html">About & Staff</a>
             <a href="student-portal.html">Portal</a>
-            <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
           </div>
         </nav>
@@ -50,7 +52,7 @@
             </p>
             <div style="margin-top: 2rem; animation: slideUp 0.6s ease-out 0.5s both;">
               <a href="admissions.html" class="btn btn-accent">Apply Now</a>
-              <a href="academics.html" class="btn btn-secondary" style="margin-left: 1rem; background: rgba(255,255,255,0.1); color: white; border-color: white;">Learn More</a>
+              <a href="program.html" class="btn btn-secondary" style="margin-left: 1rem; background: rgba(255,255,255,0.1); color: white; border-color: white;">Learn More</a>
             </div>
           </div>
         </section>
@@ -233,8 +235,8 @@
         </div>
         <div class="footer-section">
           <h3>Quick Links</h3>
-          <a href="academics.html"><i class="fas fa-book"></i> Academics</a><br>
-          <a href="staff.html"><i class="fas fa-users"></i> Faculty</a><br>
+          <a href="program.html"><i class="fas fa-book"></i> Program</a><br>
+          <a href="about-staff.html"><i class="fas fa-users"></i> Faculty</a><br>
           <a href="admissions.html"><i class="fas fa-user-plus"></i> Admissions</a><br>
           <a href="student-portal.html"><i class="fas fa-door-open"></i> Student Portal</a>
         </div>
@@ -256,5 +258,34 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking on a link
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav') && !e.target.closest('.menu-toggle')) {
+          menuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        }
+      });
+    }
+  </script>
 </body>
 </html>

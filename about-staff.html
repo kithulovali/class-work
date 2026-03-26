@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About the Department of Informatics and Computing - Faculty, Staff, Mission, Vision, and History">
+  <title>About & Faculty | Department of Informatics & Computing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3H+J5wnEsA3mS7rjt46gF52D87Xjbn63fBu03vxvx6wjWDxSJc5AoX41togvAdE1f3MwRE/+v0A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .staff-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-light);
+    }
+
+    .staff-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .staff-image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1.1;
+      object-fit: cover;
+      background: var(--primary-light);
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .staff-image {
+        aspect-ratio: 1 / 1.2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .staff-image {
+        aspect-ratio: 1 / 1.15;
+      }
+    }
+
+    .staff-info {
+      padding: 1.5rem;
+    }
+
+    .staff-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 0.5rem 0;
+    }
+
+    .staff-title {
+      color: var(--accent-yellow-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .staff-specialization {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .staff-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .staff-contact a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .staff-contact a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Page navigation tabs */
+    .page-tabs {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-2xl);
+      border-bottom: 2px solid var(--border-light);
+      flex-wrap: wrap;
+    }
+
+    .page-tabs button {
+      padding: var(--spacing-md) var(--spacing-lg);
+      background: none;
+      border: none;
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.3s ease;
+      font-family: var(--font-primary);
+    }
+
+    .page-tabs button:hover {
+      color: var(--primary-blue);
+    }
+
+    .page-tabs button.active {
+      color: var(--primary-blue);
+      border-bottom-color: var(--primary-blue);
+    }
+
+    @media (max-width: 480px) {
+      .page-tabs {
+        gap: var(--spacing-sm);
+      }
+
+      .page-tabs button {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-sm);
+      }
+    }
+
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header & Navigation -->
+    <header>
+      <div class="header-content">
+        <div class="logo-area">
+          <img src="work/bu.png" alt="Bugema University Logo" class="logo-img">
+          <div class="dept-title">
+            <h1>Informatics & Computing</h1>
+            <p>Bugema University</p>
+          </div>
+        </div>
+        <nav>
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="admissions.html">Admissions</a>
+            <a href="program.html">Program</a>
+            <a href="about-staff.html" class="active">About & Staff</a>
+            <a href="student-portal.html">Portal</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="container">
+        <!-- Hero -->
+        <section class="hero" style="animation: slideDown 0.8s ease-out;">
+          <div class="hero-content">
+            <h1 style="animation: slideUp 0.6s ease-out 0.2s both;">About Our Department & Faculty</h1>
+            <p style="animation: slideUp 0.6s ease-out 0.3s both;">Excellence in Technology Education</p>
+          </div>
+        </section>
+
+        <!-- Page Tabs Navigation -->
+        <div class="page-tabs">
+          <button class="tab-btn active" data-tab="about">
+            <i class="fas fa-info-circle"></i> About
+          </button>
+          <button class="tab-btn" data-tab="faculty">
+            <i class="fas fa-users"></i> Faculty & Staff
+          </button>
+        </div>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="page-section active">
+          
+          <!-- Mission & Vision -->
+          <section style="margin: 3rem 0;" class="fade-in-up">
+            <div class="grid-2">
+              <div class="card card-animate" style="animation: slideUp 0.6s ease-out 0.1s both;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                  <div style="font-size: 2.5rem; color: var(--primary-blue);">
+                    <i class="fas fa-bullseye"></i>
+                  </div>
+                  <h2 style="margin: 0; color: var(--primary-blue);">Our Mission</h2>
+                </div>
+                <p style="animation: fadeIn 0.6s ease-out 0.2s both;">
+                  Quality computing education empowering students with technical skills, critical thinking, and ethical values.
+                </p>
+              </div>
+
+              <div class="card card-animate" style="animation: slideUp 0.6s ease-out 0.2s both;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                  <div style="font-size: 2.5rem; color: var(--primary-blue);">
+                    <i class="fas fa-eye"></i>
+                  </div>
+                  <h2 style="margin: 0; color: var(--primary-blue);">Our Vision</h2>
+                </div>
+                <p style="animation: fadeIn 0.6s ease-out 0.3s both;">
+                  An internationally recognized center of excellence producing innovative professionals who lead technological transformation.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Core Values -->
+          <section style="margin: 3rem 0;" class="fade-in-up">
+            <h2 style="text-align: center; margin-bottom: 2rem; animation: slideDown 0.6s ease-out;">Our Core Values</h2>
+            <div class="grid-4">
+              <div class="feature-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Innovation</h3>
+                <p>Fostering creativity, research, and cutting-edge solutions to technological challenges</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Excellence</h3>
+                <p>Maintaining the highest standards in education, research, and professional practice</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Collaboration</h3>
+                <p>Promoting teamwork, partnerships with industry, and community engagement</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Integrity</h3>
+                <p>Upholding ethical standards, honesty, and responsibility in all endeavors</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Sustainability</h3>
+                <p>Promoting environmentally and socially responsible computing practices</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-globe"></i>
+                <h3>Global Perspective</h3>
+                <p>Embracing diversity and preparing students for international careers</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-climbing"></i>
+                <h3>Continuous Learning</h3>
+                <p>Encouraging lifelong learning and adaptation to technological change</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-hands-helping"></i>
+                <h3>Social Impact</h3>
+                <p>Using technology to create positive outcomes for individuals and communities</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- History -->
+          <section style="margin: 3rem 0;">
+            <div class="card">
+              <div class="card-header">
+                <h2>Our History & Heritage</h2>
+              </div>
+              
+              <h3 style="color: var(--primary-blue); margin-top: 2rem; margin-bottom: 1rem;">
+                <i class="fas fa-history"></i> Department Timeline
+              </h3>
+
+              <div style="position: relative; padding: 2rem 0;">
+                <!-- Timeline -->
+                <div style="border-left: 3px solid var(--primary-blue); padding-left: 2rem; position: relative;">
+                  
+                  <div style="margin-bottom: 2.5rem; position: relative;">
+                    <div style="position: absolute; left: -2.9rem; top: 0; width: 16px; height: 16px; background: var(--primary-blue); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--primary-blue);"></div>
+                    <h4 style="color: var(--primary-dark); margin: 0 0 0.5rem 0;">2009 - Foundation Year</h4>
+                    <p style="margin: 0; color: var(--text-muted);">Department of Informatics and Computing established with initial intake of 50 students in Computer Science program</p>
+                  </div>
+
+                  <div style="margin-bottom: 2.5rem; position: relative;">
+                    <div style="position: absolute; left: -2.9rem; top: 0; width: 16px; height: 16px; background: var(--primary-blue); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--primary-blue);"></div>
+                    <h4 style="color: var(--primary-dark); margin: 0 0 0.5rem 0;">2012 - Expansion</h4>
+                    <p style="margin: 0; color: var(--text-muted);">Launched Information Systems program and established first research lab for systems security</p>
+                  </div>
+
+                  <div style="margin-bottom: 2.5rem; position: relative;">
+                    <div style="position: absolute; left: -2.9rem; top: 0; width: 16px; height: 16px; background: var(--primary-blue); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--primary-blue);"></div>
+                    <h4 style="color: var(--primary-dark); margin: 0 0 0.5rem 0;">2015 - Infrastructure Development</h4>
+                    <p style="margin: 0; color: var(--text-muted);">Constructed modern computing labs with state-of-the-art infrastructure and equipment</p>
+                  </div>
+
+                  <div style="margin-bottom: 2.5rem; position: relative;">
+                    <div style="position: absolute; left: -2.9rem; top: 0; width: 16px; height: 16px; background: var(--primary-blue); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--primary-blue);"></div>
+                    <h4 style="color: var(--primary-dark); margin: 0 0 0.5rem 0;">2018 - Internationalization</h4>
+                    <p style="margin: 0; color: var(--text-muted);">Established partnerships with international universities and launched student exchange programs</p>
+                  </div>
+
+                  <div style="margin-bottom: 2.5rem; position: relative;">
+                    <div style="position: absolute; left: -2.9rem; top: 0; width: 16px; height: 16px; background: var(--primary-blue); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--primary-blue);"></div>
+                    <h4 style="color: var(--primary-dark); margin: 0 0 0.5rem 0;">2021 - Digital Transformation</h4>
+                    <p style="margin: 0; color: var(--text-muted);">Implemented hybrid learning model and launched digital transformation initiative for online education</p>
+                  </div>
+
+                  <div style="position: relative;">
+                    <div style="position: absolute; left: -2.9rem; top: 0; width: 16px; height: 16px; background: var(--accent-yellow); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--accent-yellow);"></div>
+                    <h4 style="color: var(--primary-dark); margin: 0 0 0.5rem 0;">2024 - Present Excellence</h4>
+                    <p style="margin: 0; color: var(--text-muted);">Department now serves 500+ students with 35+ faculty members and multiple research initiatives in AI, IoT, and Cloud Computing</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Achievements -->
+          <section style="margin: 3rem 0;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Achievements & Recognition</h2>
+            <div class="grid-2">
+              <div class="card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                  <i class="fas fa-trophy"></i> Academic Accreditation
+                </h3>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>International Accreditation:</strong> ACME Accredited
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>Regional Recognition:</strong> AAU Member Institution
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>National Ranking:</strong> Top 5 Computing Programs in East Africa
+                  </li>
+                  <li style="padding: 0.8rem 0;">
+                    <strong>Quality Assurance:</strong> Certified by National Council for Higher Education
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                  <i class="fas fa-award"></i> Notable Achievements
+                </h3>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <i class="fas fa-star" style="color: var(--accent-yellow);"></i> 150+ Published Research Papers
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <i class="fas fa-star" style="color: var(--accent-yellow);"></i> 95% Graduate Placement Rate
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <i class="fas fa-star" style="color: var(--accent-yellow);"></i> 20+ Industry Partnerships
+                  </li>
+                  <li style="padding: 0.8rem 0;">
+                    <i class="fas fa-star" style="color: var(--accent-yellow);"></i> Multiple National & Regional Awards
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                  <i class="fas fa-graduation-cap"></i> Alumni Success
+                </h3>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>4,000+</strong> Successful Graduates
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    Alumni working at Google, Microsoft, Amazon, IBM
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    Several alumni as tech entrepreneurs and startup founders
+                  </li>
+                  <li style="padding: 0.8rem 0;">
+                    Active alumni network supporting current students
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                  <i class="fas fa-flask"></i> Research & Innovation
+                </h3>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    7 Active Research Laboratories
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    Focus in AI, IoT, Cloud Computing, Cybersecurity
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    International research collaboration & funding
+                  </li>
+                  <li style="padding: 0.8rem 0;">
+                    Student research opportunities and publications
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Facilities -->
+          <section style="margin: 3rem 0;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">State-of-the-Art Facilities</h2>
+            <div class="grid-2">
+              <div class="feature-card">
+                <i class="fas fa-laptop"></i>
+                <h3>Computing Laboratories</h3>
+                <p>6 fully equipped labs with latest workstations, servers, and development tools. 24/7 access for student projects</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>Network Infrastructure</h3>
+                <p>High-speed Wi-Fi throughout campus, dedicated server rooms, and secure network architecture</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-microscope"></i>
+                <h3>Research Labs</h3>
+                <p>Specialized labs for AI, IoT, Cybersecurity, and Cloud Computing research initiatives</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-book"></i>
+                <h3>Digital Library</h3>
+                <p>Extensive collection of e-books, journals, and research databases with 24/7 access</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-video"></i>
+                <h3>Lecture Halls</h3>
+                <p>Modern classrooms with multimedia equipment, video conferencing, and remote learning capabilities</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Collaboration Spaces</h3>
+                <p>Student lounges, project rooms, and collaborative workspaces for group study and projects</p>
+              </div>
+            </div>
+          </section>
+
+        </section>
+
+        <!-- FACULTY & STAFF SECTION -->
+        <section id="faculty" class="page-section">
+
+          <!-- Department Leadership -->
+          <section style="margin: 3rem 0;" class="fade-in-up">
+            <h2 style="text-align: center; margin-bottom: 3rem; animation: slideDown 0.6s ease-out; color: var(--primary-blue);">
+              <i class="fas fa-crown" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Department Head
+            </h2>
+            <div style="max-width: 600px; margin: 0 auto;">
+              <div class="staff-card card-animate" style="animation: slideUp 0.6s ease-out; overflow: hidden; border: 3px solid var(--accent-yellow);">
+                <img src="work/hod.png" alt="Prof. Sewakambo Erma" class="staff-image" style="aspect-ratio: 1/1.1; object-fit: cover; width: 100%; height: auto;">
+                <div class="staff-info" style="padding: 2rem; text-align: center;">
+                  <div class="staff-title" style="font-size: 1.2rem; background: var(--primary-light); color: var(--primary-blue); padding: 0.8rem 1rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+                    <i class="fas fa-chalkboard-user"></i> Head of Department
+                  </div>
+                  <div class="staff-name" style="font-size: 1.8rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Prof. Sewakambo Erma</div>
+                  <div class="staff-specialization" style="color: var(--accent-yellow-dark); font-weight: 600; margin-bottom: 1rem;">
+                    PhD in Computer Science | 20+ Years Experience
+                  </div>
+                  <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                    Software Engineering | Systems Design | Academic Leadership
+                  </p>
+                  <div class="staff-contact" style="display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--border-light);">
+                    <a href="mailto:sewakambo@bugema.ac.ug" style="color: var(--primary-blue); text-decoration: none; transition: all 0.3s;"><i class="fas fa-envelope"></i> sewakambo@bugema.ac.ug</a>
+                    <a href="tel:+256701234567" style="color: var(--primary-blue); text-decoration: none; transition: all 0.3s;"><i class="fas fa-phone"></i> +256 701 234 567</a>
+                    <span style="color: var(--text-muted); font-size: 0.9rem;"><i class="fas fa-clock"></i> Office: Room 301 | Mon-Fri 2-4 PM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Lecturers Section -->
+          <section style="margin: 4rem 0;" class="fade-in-up">
+            <h2 style="text-align: center; margin-bottom: 3rem; animation: slideDown 0.6s ease-out; color: var(--primary-blue);">
+              <i class="fas fa-book" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Faculty Lecturers
+            </h2>
+            
+            <div class="grid-2" style="gap: 2.5rem;">
+              <!-- Lecturer 1 -->
+              <div class="staff-card card-animate" style="animation: slideUp 0.6s ease-out 0.1s both; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+                <div style="position: relative; overflow: hidden; height: 350px;">
+                  <img src="work/lecture1.jpeg" alt="Dr. Sarah Kimani" class="staff-image" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+                  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 0%, rgba(15, 76, 129, 0.7) 100%); display: flex; align-items: flex-end; padding: 1.5rem; z-index: 1;">
+                    <div>
+                      <div style="color: white; font-weight: 600; font-size: 1.1rem;">Senior Lecturer</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="staff-info" style="padding: 1.5rem;">
+                  <div class="staff-name" style="font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Dr. Sarah Kimani</div>
+                  <div class="staff-specialization" style="color: var(--accent-yellow-dark); font-weight: 600; margin-bottom: 1rem; font-size: 0.9rem;">
+                    Mathematics & Algorithms
+                  </div>
+                  <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    18+ years teaching experience | ACM Senior Member | Algorithm design specialist
+                  </p>
+                  <div class="staff-contact" style="display: flex; flex-direction: column; gap: 0.6rem;">
+                    <a href="mailto:skimani@bugema.ac.ug" style="color: var(--primary-blue); text-decoration: none; font-size: 0.9rem; transition: all 0.3s;"><i class="fas fa-envelope"></i> skimani@bugema.ac.ug</a>
+                    <a href="tel:+256701234569" style="color: var(--primary-blue); text-decoration: none; font-size: 0.9rem; transition: all 0.3s;"><i class="fas fa-phone"></i> +256 701 234 569</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lecturer 2 -->
+              <div class="staff-card card-animate" style="animation: slideUp 0.6s ease-out 0.2s both; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+                <div style="position: relative; overflow: hidden; height: 350px;">
+                  <img src="work/lecture2.jpeg" alt="Dr. James Morrison" class="staff-image" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+                  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 0%, rgba(15, 76, 129, 0.7) 100%); display: flex; align-items: flex-end; padding: 1.5rem; z-index: 1;">
+                    <div>
+                      <div style="color: white; font-weight: 600; font-size: 1.1rem;">Senior Lecturer</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="staff-info" style="padding: 1.5rem;">
+                  <div class="staff-name" style="font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Dr. James Morrison</div>
+                  <div class="staff-specialization" style="color: var(--accent-yellow-dark); font-weight: 600; margin-bottom: 1rem; font-size: 0.9rem;">
+                    OOP & Software Engineering
+                  </div>
+                  <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    14+ years experience | 50+ publications | Design patterns expert
+                  </p>
+                  <div class="staff-contact" style="display: flex; flex-direction: column; gap: 0.6rem;">
+                    <a href="mailto:jmorrison@bugema.ac.ug" style="color: var(--primary-blue); text-decoration: none; font-size: 0.9rem; transition: all 0.3s;"><i class="fas fa-envelope"></i> jmorrison@bugema.ac.ug</a>
+                    <a href="tel:+256701234570" style="color: var(--primary-blue); text-decoration: none; font-size: 0.9rem; transition: all 0.3s;"><i class="fas fa-phone"></i> +256 701 234 570</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lecturer 3 -->
+              <div class="staff-card card-animate" style="animation: slideUp 0.6s ease-out 0.3s both; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+                <div style="position: relative; overflow: hidden; height: 350px;">
+                  <img src="work/lecture3.jpeg" alt="Eng. Michael Okafor" class="staff-image" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+                  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 0%, rgba(15, 76, 129, 0.7) 100%); display: flex; align-items: flex-end; padding: 1.5rem; z-index: 1;">
+                    <div>
+                      <div style="color: white; font-weight: 600; font-size: 1.1rem;">Lecturer</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="staff-info" style="padding: 1.5rem;">
+                  <div class="staff-name" style="font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Eng. Michael Okafor</div>
+                  <div class="staff-specialization" style="color: var(--accent-yellow-dark); font-weight: 600; margin-bottom: 1rem; font-size: 0.9rem;">
+                    Web Development & Cloud
+                  </div>
+                  <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    10+ years industry experience | Full-stack developer | AWS certified
+                  </p>
+                  <div class="staff-contact" style="display: flex; flex-direction: column; gap: 0.6rem;">
+                    <a href="mailto:mokafor@bugema.ac.ug" style="color: var(--primary-blue); text-decoration: none; font-size: 0.9rem; transition: all 0.3s;"><i class="fas fa-envelope"></i> mokafor@bugema.ac.ug</a>
+                    <a href="tel:+256701234571" style="color: var(--primary-blue); text-decoration: none; font-size: 0.9rem; transition: all 0.3s;"><i class="fas fa-phone"></i> +256 701 234 571</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lecturer 4 -->
+              <div class="staff-card card-animate" style="animation: slideUp 0.6s ease-out 0.4s both; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+                <div style="position: relative; overflow: hidden; height: 350px;">
+                  <img src="work/lecture4.jpeg" alt="Dr. Amina Hassan" class="staff-image" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+                  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 0%, rgba(15, 76, 129, 0.7) 100%); display: flex; align-items: flex-end; padding: 1.5rem; z-index: 1;">
+                    <div>
+                      <div style="color: white; font-weight: 600; font-size: 1.1rem;">Senior Lecturer</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="staff-info" style="padding: 1.5rem;">
+                  <div class="staff-name" style="font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Dr. Amina Hassan</div>
+                  <div class="staff-specialization" style="color: var(--accent-yellow-dark); font-weight: 600; margin-bottom: 1rem; font-size: 0.9rem;">
+                    Database & Big Data
+                  </div>
+                  <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    12+ years experience | Data architect | Big Data specialist
+                  </p>
+                  <div class="staff-contact" style="display: flex; flex-direction: column; gap: 0.6rem;">
+                    <a href="mailto:ahassan@bugema.ac.ug" style="color: var(--primary-blue); text-decoration: none; font-size: 0.9rem; transition: all 0.3s;"><i class="fas fa-envelope"></i> ahassan@bugema.ac.ug</a>
+                    <a href="tel:+256701234572" style="color: var(--primary-blue); text-decoration: none; font-size: 0.9rem; transition: all 0.3s;"><i class="fas fa-phone"></i> +256 701 234 572</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Faculty Expertise -->
+          <section style="margin: 4rem 0; padding: 2rem; background: var(--primary-light); border-radius: var(--radius-lg);" class="fade-in-up">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-blue); animation: slideDown 0.6s ease-out;">
+              <i class="fas fa-flask" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Research & Specializations
+            </h2>
+            <div class="grid-2">
+              <div style="animation: slideUp 0.6s ease-out 0.1s both;">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                  <i class="fas fa-microscope"></i> Research Areas
+                </h3>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>AI & Machine Learning</strong>
+                    <div style="color: var(--text-muted); font-size: 0.85rem;">Neural networks, Deep learning</div>
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>Cloud Computing</strong>
+                    <div style="color: var(--text-muted); font-size: 0.85rem;">AWS, Azure, Distributed systems</div>
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>Cybersecurity</strong>
+                    <div style="color: var(--text-muted); font-size: 0.85rem;">Network security, Cryptography</div>
+                  </li>
+                  <li style="padding: 0.8rem 0;">
+                    <strong>Data Science</strong>
+                    <div style="color: var(--text-muted); font-size: 0.85rem;">Big data analytics, Visualization</div>
+                  </li>
+                </ul>
+              </div>
+
+              <div style="animation: slideUp 0.6s ease-out 0.2s both;">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
+                  <i class="fas fa-award"></i> Credentials & Certifications
+                </h3>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>PhDs:</strong> 75% of faculty hold doctorates
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>Certifications:</strong> AWS, Azure, Google Cloud, Cisco
+                  </li>
+                  <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border-light);">
+                    <strong>Publications:</strong> 100+ peer-reviewed papers
+                  </li>
+                  <li style="padding: 0.8rem 0;">
+                    <strong>Professional:</strong> ACM, IEEE, ICS members
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>The Department of Informatics and Computing at Bugema University is committed to excellence in technology education and research.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="program.html"><i class="fas fa-book"></i> Program</a><br>
+          <a href="about-staff.html"><i class="fas fa-users"></i> About & Staff</a><br>
+          <a href="admissions.html"><i class="fas fa-user-plus"></i> Admissions</a><br>
+          <a href="student-portal.html"><i class="fas fa-door-open"></i> Student Portal</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+          <p><i class="fas fa-phone"></i> +256 (0) 312 266 900</p>
+          <p><i class="fas fa-envelope"></i> computing@bugema.ac.ug</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a><br>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a><br>
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Department of Informatics & Computing, Bugema University. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Page tab switching
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const pageSections = document.querySelectorAll('.page-section');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tab = button.getAttribute('data-tab');
+
+        // Remove active class from all buttons and sections
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        pageSections.forEach(section => section.classList.remove('active'));
+
+        // Add active class to clicked button and corresponding section
+        button.classList.add('active');
+        document.getElementById(tab).classList.add('active');
+
+        // Scroll to section
+        document.getElementById(tab).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('nav') && !e.target.closest('.menu-toggle')) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Academics - Course schedules, timetables, and academic programs at the Department of Informatics and Computing">
-  <title>Academics & Timetable | Department of Informatics & Computing</title>
+  <meta name="description" content="Programs - Course programs, timetables, and schedules at the Department of Informatics and Computing">
+  <title>Programs & Timetable | Department of Informatics & Computing</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3H+J5wnEsA3mS7rjt46gF52D87Xjbn63fBu03vxvx6wjWDxSJc5AoX41togvAdE1f3MwRE/+v0A==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,13 +48,15 @@
           </div>
         </div>
         <nav>
-          <div class="nav-links">
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="nav-links" id="navLinks">
             <a href="index.html">Home</a>
             <a href="admissions.html">Admissions</a>
-            <a href="academics.html" class="active">Academics</a>
-            <a href="staff.html">Staff</a>
+            <a href="program.html" class="active">Program</a>
+            <a href="about-staff.html">About & Staff</a>
             <a href="student-portal.html">Portal</a>
-            <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
           </div>
         </nav>
@@ -68,18 +70,116 @@
         <section class="hero" style="animation: slideDown 0.8s ease-out;">
           <div class="hero-content">
             <h1 style="animation: slideUp 0.6s ease-out 0.2s both;">Academic Programs</h1>
-            <p style="animation: slideUp 0.6s ease-out 0.3s both;">Courses and Schedules for All Years</p>
+            <p style="animation: slideUp 0.6s ease-out 0.3s both;">Courses and Schedules for All Programs</p>
           </div>
         </section>
 
-        <!-- Year Selection -->
+        <!-- Core Programs Section -->
+        <section style="margin: 3rem 0;" class="fade-in-up">
+          <h2 style="text-align: center; margin-bottom: 2rem; animation: slideDown 0.6s ease-out;">Our Academic Programs</h2>
+          <div class="grid-2">
+            <div class="card" style="animation: slideUp 0.6s ease-out 0.1s both;">
+              <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;">
+                <div style="font-size: 2rem; color: var(--primary-blue);">
+                  <i class="fas fa-code"></i>
+                </div>
+                <h3 style="margin: 0; color: var(--primary-blue);">Software Engineering</h3>
+              </div>
+              <p>Comprehensive program focused on software development methodologies, design patterns, and large-scale application development. Students learn professional coding standards, testing frameworks, and agile practices.</p>
+              <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Object-Oriented Design</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Web & Mobile Applications</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Software Testing & QA</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Project Management</li>
+              </ul>
+            </div>
+
+            <div class="card" style="animation: slideUp 0.6s ease-out 0.2s both;">
+              <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;">
+                <div style="font-size: 2rem; color: var(--primary-blue);">
+                  <i class="fas fa-network-wired"></i>
+                </div>
+                <h3 style="margin: 0; color: var(--primary-blue);">Network System Administration</h3>
+              </div>
+              <p>Specialized program in network infrastructure, security, and system management. Covers enterprise network design, server administration, cybersecurity, and cloud infrastructure management.</p>
+              <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Network Design & Security</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Server Administration</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Cybersecurity Management</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Cloud Infrastructure</li>
+              </ul>
+            </div>
+
+            <div class="card" style="animation: slideUp 0.6s ease-out 0.3s both;">
+              <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;">
+                <div style="font-size: 2rem; color: var(--primary-blue);">
+                  <i class="fas fa-laptop"></i>
+                </div>
+                <h3 style="margin: 0; color: var(--primary-blue);">Information Technologies</h3>
+              </div>
+              <p>Comprehensive IT program covering rapid technology adoption, IT management, and digital transformation. Focuses on practical application of emerging technologies and IT strategy for organizations.</p>
+              <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Database Management</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>IT Systems Implementation</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Data Analytics</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>IT Project Management</li>
+              </ul>
+            </div>
+
+            <div class="card" style="animation: slideUp 0.6s ease-out 0.4s both;">
+              <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;">
+                <div style="font-size: 2rem; color: var(--primary-blue);">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 style="margin: 0; color: var(--primary-blue);">Business Computing</h3>
+              </div>
+              <p>Program bridging business and technology, emphasizing IT solutions for business challenges. Covers business process automation, enterprise systems, business analytics, and digital business strategy.</p>
+              <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Enterprise Systems (SAP, Oracle)</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Business Intelligence</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Business Process Management</li>
+                <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent-yellow); margin-right: 0.5rem;"></i>Digital Transformation Strategy</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Course Descriptions -->
+        <section style="margin: 3rem 0;">
+          <h2 style="margin-bottom: 2rem;">Core Courses By Track</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="color: var(--primary-blue);">Software Engineering Track</h3>
+              <p><strong>Introduction to Programming:</strong> Fundamentals of programming with Python and Java. Variables, control flow, functions, and basic data structures.</p>
+              <p><strong>Object-Oriented Programming:</strong> Classes, inheritance, polymorphism, encapsulation. Real-world application design patterns.</p>
+              <p><strong>Advanced Web Development:</strong> Full-stack web applications using modern frameworks. Frontend (React, Vue), Backend (Node.js, Django) integration.</p>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--primary-blue);">Network & Systems Track</h3>
+              <p><strong>Operating Systems:</strong> Process management, memory management, file systems, and concurrent programming.</p>
+              <p><strong>Computer Organization:</strong> CPU architecture, assembly language, memory hierarchy, I/O systems.</p>
+              <p><strong>System Administration:</strong> Linux/Windows server management, network configuration, user management.</p>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--primary-blue);">Information Technologies Track</h3>
+              <p><strong>Data Structures and Algorithms:</strong> Comprehensive study of structures, complexity analysis, and optimization techniques.</p>
+              <p><strong>Database Design &amp; Management:</strong> Relational databases, SQL, data normalization, and database security.</p>
+              <p><strong>Data Analytics:</strong> Statistical analysis, data visualization, business intelligence tools, and predictive modeling.</p>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--primary-blue);">Business Computing Track</h3>
+              <p><strong>Business Process Analysis:</strong> Business process modeling, optimization, and automation techniques.</p>
+              <p><strong>Enterprise Resource Planning:</strong> ERP system implementation, configuration, and business process alignment.</p>
+              <p><strong>Business Intelligence:</strong> Data warehousing, analytics, reporting, and strategic decision support systems.</p>
+            </div>
+          </div>
+        </section>
+        <!-- Timetables & Course Schedules -->
         <section style="margin: 3rem 0;" class="fade-in-up">
           <div class="card" style="animation: slideUp 0.6s ease-out;">
             <div class="card-header">
-              <h2 style="animation: slideDown 0.6s ease-out;">Course Schedules</h2>
+              <h2 style="animation: slideDown 0.6s ease-out;">Timetables & Course Schedules</h2>
             </div>
-            
-            <!-- Year 1 -->
             <div style="margin-bottom: 3rem;">
               <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">
                 <i class="fas fa-calendar"></i> Year 1 - First Semester (Sep 2024 - Dec 2024)
@@ -387,37 +487,6 @@
           </div>
         </section>
 
-        <!-- Course Descriptions -->
-        <section style="margin: 3rem 0;">
-          <h2 style="margin-bottom: 2rem;">Core Courses</h2>
-          <div class="grid-2">
-            <div class="card">
-              <h3 style="color: var(--primary-blue);">Programming Courses</h3>
-              <p><strong>Introduction to Programming:</strong> Fundamentals of programming with Python and Java. Variables, control flow, functions, and basic data structures.</p>
-              <p><strong>Object-Oriented Programming:</strong> Classes, inheritance, polymorphism, encapsulation. Real-world application design patterns.</p>
-              <p><strong>Advanced Web Development:</strong> Full-stack web applications using modern frameworks. Frontend (React, Vue), Backend (Node.js, Django) integration.</p>
-            </div>
-            <div class="card">
-              <h3 style="color: var(--primary-blue);">Systems Courses</h3>
-              <p><strong>Operating Systems:</strong> Process management, memory management, file systems, and concurrent programming.</p>
-              <p><strong>Computer Organization:</strong> CPU architecture, assembly language, memory hierarchy, I/O systems.</p>
-              <p><strong>System Administration:</strong> Linux/Windows server management, network configuration, user management.</p>
-            </div>
-            <div class="card">
-              <h3 style="color: var(--primary-blue);">Data & AI Courses</h3>
-              <p><strong>Data Structures and Algorithms:</strong> Comprehensive study of structures, complexity analysis, and optimization techniques.</p>
-              <p><strong>Artificial Intelligence:</strong> Machine learning, deep learning, neural networks, natural language processing.</p>
-              <p><strong>Data Mining & Analytics:</strong> Statistical analysis, data visualization, predictive modeling.</p>
-            </div>
-            <div class="card">
-              <h3 style="color: var(--primary-blue);">Specialized Courses</h3>
-              <p><strong>Cybersecurity:</strong> Network security, cryptography, ethical hacking, security protocols.</p>
-              <p><strong>Cloud Computing:</strong> AWS, Azure, Google Cloud. Infrastructure as a Service, Platform as a Service.</p>
-              <p><strong>Mobile Development:</strong> Native apps (iOS/Android), cross-platform frameworks, mobile UI/UX.</p>
-            </div>
-          </div>
-        </section>
-
         <!-- Academic Calendar -->
         <section style="margin: 3rem 0;">
           <div class="card">
@@ -482,8 +551,8 @@
         </div>
         <div class="footer-section">
           <h3>Quick Links</h3>
-          <a href="academics.html"><i class="fas fa-book"></i> Academics</a><br>
-          <a href="staff.html"><i class="fas fa-users"></i> Faculty</a><br>
+          <a href="program.html"><i class="fas fa-book"></i> Program</a><br>
+          <a href="about-staff.html"><i class="fas fa-users"></i> Faculty</a><br>
           <a href="admissions.html"><i class="fas fa-user-plus"></i> Admissions</a><br>
           <a href="student-portal.html"><i class="fas fa-door-open"></i> Student Portal</a>
         </div>
@@ -505,5 +574,32 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav') && !e.target.closest('.menu-toggle')) {
+          menuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
